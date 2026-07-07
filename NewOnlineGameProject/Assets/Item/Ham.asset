@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Bug
+  m_Name: Ham
   m_EditorClassIdentifier: 
-  itemName: Bug
-  type: 2
-  icon: {fileID: 21300000, guid: 6ea869339bb2fac44b03360c9edc314f, type: 3}
-  prefab: {fileID: 1182157222213334, guid: 7c434dba375e385479e23119e9a0861e, type: 3}
-  weight: 1
-  value: 5
-  isConsumable: 0
+  itemName: Ham
+  type: 1
+  icon: {fileID: 21300000, guid: 7c3b71902beb5924fb4a41c7f1bafd30, type: 3}
+  prefab: {fileID: 5083251636416623565, guid: 1df05b60024cd0347bebd5ce25f1e531, type: 3}
+  weight: 3
+  value: 300
+  resourcePrefabName: Ham
+  isConsumable: 1
+  healthRestore: 30
+  speedBoostMultiplier: 1
+  speedBoostDuration: 0

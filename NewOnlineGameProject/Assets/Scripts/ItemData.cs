@@ -21,6 +21,14 @@ public class ItemData : ScriptableObject
     public float weight = 1f; // 重量 (用于计算超重减速)
     public int value = 0;     // 价值 (撤离变卖用)
 
-    [Header("道具特殊属性")]
-    public bool isConsumable = false; // 是否是一次性消耗品 (比如吃完就没的药)
+    [Header("联机生成设置")]
+    public string resourcePrefabName;
+
+    [Header("道具特殊属性 (Prop专属)")]
+    public bool isConsumable = true;      // 是否是一次性消耗品 (默认打勾，吃完就没)
+    public float healthRestore = 0f;      // 回血量 (如果是血包就填 50)
+
+    [Header("加速 Buff 属性")]
+    public float speedBoostMultiplier = 1f; // 移速倍率 (填 1 为不加速，填 1.5 为提速50%)
+    public float speedBoostDuration = 5f;   // 加速持续时间 (秒)
 }
