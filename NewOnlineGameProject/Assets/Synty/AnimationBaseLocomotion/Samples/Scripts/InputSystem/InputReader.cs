@@ -9,10 +9,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Photon.Pun;
 
 namespace Synty.AnimationBaseLocomotion.Samples.InputSystem
 {
-    public class InputReader : MonoBehaviour, Controls.IPlayerActions
+    public class InputReader : MonoBehaviourPun, Controls.IPlayerActions
     {
         public Vector2 _mouseDelta;
         public Vector2 _moveComposite;
@@ -40,6 +41,8 @@ namespace Synty.AnimationBaseLocomotion.Samples.InputSystem
         /// <inheritdoc cref="OnEnable" />
         private void OnEnable()
         {
+            if (!photonView.IsMine) return;
+
             if (_controls == null)
             {
                 _controls = new Controls();
@@ -52,6 +55,8 @@ namespace Synty.AnimationBaseLocomotion.Samples.InputSystem
         /// <inheritdoc cref="OnDisable" />
         public void OnDisable()
         {
+            if (!photonView.IsMine) return;
+
             _controls.Player.Disable();
         }
 
@@ -164,6 +169,39 @@ namespace Synty.AnimationBaseLocomotion.Samples.InputSystem
 
             onLockOnToggled?.Invoke();
             onSprintDeactivated?.Invoke();
+        }
+
+        void Start()
+        {
+            if (!photonView.IsMine) return;
+
+            // 将鼠标指针锁定在游戏窗口中心
+            Cursor.lockState = CursorLockMode.Locked;
+            // 隐藏鼠标指针
+            Cursor.visible = false;
+        }
+
+        private void Update()
+        {
+            // 非本地玩家直接跳过
+            if (!photonView.IsMine) return;
+
+            // 检测左 Alt 键是否在当前帧被按下
+            if (Keyboard.current != null && Keyboard.current.leftAltKey.wasPressedThisFrame)
+            {
+                // 如果当前是锁定状态，就解锁并显示鼠标
+                if (Cursor.lockState == CursorLockMode.Locked)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+                // 否则就重新锁定并隐藏鼠标
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+            }
         }
     }
 }
