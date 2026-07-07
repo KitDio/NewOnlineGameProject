@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 9f773338b2a96174ebe9b63870034ca3
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 22103
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -17,7 +17,11 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'UpperLeg_L'
+      : position error = 189.232986 mm\n\t'LowerLeg_L' : position error = 566.638916
+      mm\n\t'Ankle_L' : position error = 535.223694 mm\n\t'Ball_L' : position error
+      = 160.305420 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -588,7 +592,6 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -1262,10 +1265,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 291806
-  packageName: Synty ANIMATION - Sword Combat
-  packageVersion: 1.0.1
-  assetPath: Assets/__Download/Synty/AnimationSwordCombat/Animations/Polygon/Attack/LightCombo01/A_Attack_LightCombo01A_Sword.fbx
-  uploadId: 686788
