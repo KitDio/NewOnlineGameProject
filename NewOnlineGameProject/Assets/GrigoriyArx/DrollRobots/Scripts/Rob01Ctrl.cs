@@ -12,6 +12,14 @@ public class Rob01Ctrl : MonoBehaviour
     public float bulletSpeed = 5;
     public float particleDalay = 0.5f;
 
+    public float moveSpeed = 3f;
+    public float rotateSpeed = 180f;
+
+    public float mouseSensitivity = 200f;
+
+    public Transform cameraPivot;
+
+    private float xRotation = 0f;
 
     Animator anim;
     CharacterController controller;
@@ -24,11 +32,18 @@ public class Rob01Ctrl : MonoBehaviour
         controller = GetComponent<CharacterController>();
         anim.SetFloat("speedMultiplier", speed);
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
         anim.SetBool("shoot", false);
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -95,6 +110,18 @@ public class Rob01Ctrl : MonoBehaviour
                 anim.SetBool("hitRight", true);
             } else { anim.SetBool("hitRight", false); }
         }
+
+        Vector3 move = transform.forward * vertical +
+               transform.right * horizontal;
+
+        controller.Move(move * moveSpeed * Time.deltaTime);
+
+        transform.Rotate(Vector3.up * mouseX * mouseSensitivity * Time.deltaTime);
+
+        xRotation -= mouseY * mouseSensitivity * Time.deltaTime;
+        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+
+        cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     IEnumerator StartDelay()
