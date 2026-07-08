@@ -532,13 +532,14 @@ GameObject:
   - component: {fileID: 639137721}
   - component: {fileID: 8608820995557676181}
   - component: {fileID: 8527286970533700270}
+  - component: {fileID: 1127526915}
   m_Layer: 0
   m_Name: Rob17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2088733470566228778
 Transform:
   m_ObjectHideFlags: 0
@@ -662,6 +663,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5356239073171952968, guid: 789b5b26f8add70468b7ad74e0731753,
     type: 3}
   bulletSpeed: 10
+  canAct: 1
 --- !u!114 &8527286970533700270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,6 +677,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &1127526915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322968521756326490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602510c5fd3788f4b981079f2f39f476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wakeDistance: 2
+  player: {fileID: 0}
 --- !u!1 &4575935740764599340
 GameObject:
   m_ObjectHideFlags: 0

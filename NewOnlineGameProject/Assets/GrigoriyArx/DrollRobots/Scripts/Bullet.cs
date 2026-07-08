@@ -17,8 +17,11 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, lifeTime);
     }
+    protected virtual void ApplySpecialEffect(GameObject target)
+    {
 
-    private void OnCollisionEnter(Collision collision)
+    }
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (owner == BulletOwner.Player)
         {
@@ -36,6 +39,8 @@ public class Bullet : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(20);
+
+                ApplySpecialEffect(player.gameObject);
             }
         }
 

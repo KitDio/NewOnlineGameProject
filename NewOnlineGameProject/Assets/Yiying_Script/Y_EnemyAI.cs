@@ -24,6 +24,8 @@ public class Y_EnemyAI : MonoBehaviour
 
     private bool isChasing = false;
 
+    public bool canAct = true;
+
     private NavMeshAgent agent;
     private Animator anim;
 
@@ -45,6 +47,17 @@ public class Y_EnemyAI : MonoBehaviour
         if (health != null && health.IsDead)
         {
             agent.ResetPath();
+            return;
+        }
+
+        if (!canAct)
+        {
+            agent.ResetPath();
+            agent.velocity = Vector3.zero;
+
+            anim.SetFloat("Speed", 0f);
+            anim.SetBool("shoot", false);
+
             return;
         }
 
