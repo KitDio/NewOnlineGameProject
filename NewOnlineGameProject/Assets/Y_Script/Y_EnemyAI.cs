@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+using Photon.Pun;
 public class Y_EnemyAI : MonoBehaviour
 {
     private Transform player;
@@ -47,6 +47,11 @@ public class Y_EnemyAI : MonoBehaviour
 
     void Update()
     {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
         if (health != null && health.IsDead)
         {
             agent.ResetPath();

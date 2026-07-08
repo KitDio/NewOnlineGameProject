@@ -570,7 +570,6 @@ GameObject:
   - component: {fileID: 554244451}
   - component: {fileID: 2951418116696653759}
   - component: {fileID: 7465363774974912576}
-  - component: {fileID: -6457872356211689904}
   m_Layer: 0
   m_Name: Rob02
   m_TagString: Untagged
@@ -714,28 +713,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   destroyDelay: 3
---- !u!114 &-6457872356211689904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3154103536440053312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &3281453820977311464
 GameObject:
   m_ObjectHideFlags: 0
