@@ -92,6 +92,8 @@ public class Y_EnemyAI : MonoBehaviour
 
             float distance = Vector3.Distance(transform.position, player.position);
 
+            PhotonView pv = player.GetComponent<PhotonView>();
+
             if (!isChasing)
             {
                 Wander();
@@ -152,6 +154,7 @@ public class Y_EnemyAI : MonoBehaviour
                     }
                     else
                     {
+                        Debug.Log("目的地：" + player.position);
                         agent.SetDestination(player.position);
 
                         anim.SetBool("shoot", false);
@@ -184,6 +187,7 @@ public class Y_EnemyAI : MonoBehaviour
 
     void FindNewTarget()
     {
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
         float closestDistance = detectionRange;
@@ -194,6 +198,14 @@ public class Y_EnemyAI : MonoBehaviour
 
         foreach (GameObject p in players)
         {
+            Photon.Pun.PhotonView pv = p.GetComponent<Photon.Pun.PhotonView>();
+
+            Debug.Log(
+                "发现玩家：" +
+                p.name +
+                " Actor=" + pv.OwnerActorNr +
+                " IsMine=" + pv.IsMine);
+
             float distance = Vector3.Distance(transform.position, p.transform.position);
 
             if (distance < closestDistance)
@@ -204,6 +216,8 @@ public class Y_EnemyAI : MonoBehaviour
                 playerHealth = p.GetComponent<Y_PlayerHealth>();
 
                 aimPoint = p.transform.Find("AimPoint");
+
+                Debug.Log("当前目标：" + p.name + " Actor=" + pv.OwnerActorNr);
             }
         }
 

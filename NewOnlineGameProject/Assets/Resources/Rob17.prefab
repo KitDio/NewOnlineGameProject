@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 8608820995557676181}
   - component: {fileID: 8527286970533700270}
   - component: {fileID: 1127526915}
+  - component: {fileID: -2407272192941173776}
   m_Layer: 0
   m_Name: Rob17
   m_TagString: Untagged
@@ -1054,6 +1055,28 @@ MonoBehaviour:
   wakeDistance: 3
   player: {fileID: 8013986478088203109, guid: 54cac906576b50d4da19966a5af7f8fb, type: 3}
   healthBar: {fileID: 900552877907462951}
+--- !u!114 &-2407272192941173776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322968521756326490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4381613174861890645
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,22 +8,16 @@ public class Y_EnemySpawner : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        Debug.Log("Master = " + PhotonNetwork.IsMasterClient);
-        Debug.Log("InRoom = " + PhotonNetwork.InRoom);
-
         if (!PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("不是Master");
             return;
-        }
-
-        Debug.Log("我是Master，开始生成");
 
         SpawnEnemies();
     }
 
     void SpawnEnemies()
     {
+        Debug.Log("SpawnEnemies Called");
+
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             PhotonNetwork.Instantiate(
