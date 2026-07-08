@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5199740148204699439
 MeshFilter:
@@ -135,7 +135,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 2
   m_Center: {x: -0.000000014901161, y: 0.14183854, z: 0}
 --- !u!114 &3705892099385570066
 MonoBehaviour:
