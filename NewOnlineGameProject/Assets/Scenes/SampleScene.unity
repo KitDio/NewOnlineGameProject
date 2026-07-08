@@ -8540,6 +8540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 3715936865905313563}
   staminaSlider: {fileID: 4401011292422729297}
+  avatarNameText: {fileID: 8395117008972896499}
   respawnText: {fileID: 1046378156}
   vignetteImage: {fileID: 8989324576401473708}
   normalColor: {r: 0, g: 0.023529412, b: 0.16078432, a: 0.9019608}
@@ -10607,7 +10608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player Name
+  m_text: Loading...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8aa923455f5a64468504293db7cef18, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: fe083d8d24a98b84f861559c77fa4bea, type: 2}

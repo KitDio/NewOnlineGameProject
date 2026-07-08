@@ -10,6 +10,8 @@ public class HUDManager : MonoBehaviour
     [Header("UI References")]
     public Slider healthSlider;
     public Slider staminaSlider;
+    // 【新增】头像框下方的名字文本
+    public TextMeshProUGUI avatarNameText;
 
     public TextMeshProUGUI respawnText;
 
@@ -89,6 +91,22 @@ public class HUDManager : MonoBehaviour
             {
                 localPlayerHealth = hp;
                 localPlayerStamina = hp.GetComponent<NetworkStamina>();
+
+
+                //获取玩家名字
+                if (avatarNameText != null)
+                {
+                    // 直接尝试获取 Photon 引擎底层的玩家昵称
+                    string myName = PhotonNetwork.NickName;
+
+                    // 防御性设计：如果大厅同学还没传名字过来，给个默认编号兜底
+                    if (string.IsNullOrEmpty(myName))
+                    {
+                        myName = "Pilot_" + PhotonNetwork.LocalPlayer.ActorNumber;
+                    }
+
+                    avatarNameText.text = myName;
+                }
                 Debug.Log("HUDManager: 已成功绑定本地玩家血条！");
                 break; // 找到了就跳出循环
             }
