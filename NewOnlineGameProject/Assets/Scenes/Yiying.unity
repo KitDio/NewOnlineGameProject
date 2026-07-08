@@ -131,15 +131,60 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 49472472891671188, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5654049
+      objectReference: {fileID: 0}
+    - target: {fileID: 49472472891671188, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.42432153
+      objectReference: {fileID: 0}
+    - target: {fileID: 49472472891671188, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4352707
+      objectReference: {fileID: 0}
+    - target: {fileID: 49472472891671188, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5575016
+      objectReference: {fileID: 0}
+    - target: {fileID: 641604007621080057, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38738397
+      objectReference: {fileID: 0}
+    - target: {fileID: 641604007621080057, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5915522
+      objectReference: {fileID: 0}
+    - target: {fileID: 641604007621080057, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.591552
+      objectReference: {fileID: 0}
+    - target: {fileID: 641604007621080057, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.38738355
+      objectReference: {fileID: 0}
     - target: {fileID: 1763167800718350920, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
         type: 3}
       propertyPath: m_Name
       value: Rob04
       objectReference: {fileID: 0}
+    - target: {fileID: 1763167800718350920, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7097359658200363876, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7097359658200363876, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
         type: 3}
@@ -196,10 +241,15 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 279914634}
-    - target: {fileID: 8807662572765240944, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+    - target: {fileID: 9049328517010040409, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_LocalRotation.w
+      value: 0.5483142
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049328517010040409, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.45681745
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -428,16 +478,16 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 279914634}
+      objectReference: {fileID: 1735318518}
     - target: {fileID: 2951418116696653759, guid: 2cd71d2689f0f324caed59e624b4e659,
         type: 3}
-      propertyPath: attackRange
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: aimPoint
+      value: 
+      objectReference: {fileID: 1803301891}
     - target: {fileID: 3154103536440053312, guid: 2cd71d2689f0f324caed59e624b4e659,
         type: 3}
       propertyPath: m_Name
-      value: Rob02
+      value: "\u707C\u70E7\u602A"
       objectReference: {fileID: 0}
     - target: {fileID: 8222055549877989249, guid: 2cd71d2689f0f324caed59e624b4e659,
         type: 3}
@@ -497,6 +547,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cd71d2689f0f324caed59e624b4e659, type: 3}
+--- !u!1 &587355046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1763167800718350920, guid: 7d3a0d6fa1ac88d409c7e96cb82c3289,
+    type: 3}
+  m_PrefabInstance: {fileID: 19114940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &587355053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587355046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259fbb5eb94168f4fbe1d33ba85f1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &623233659
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +675,7 @@ PrefabInstance:
     - target: {fileID: 5126331502840927000, guid: b6685ed6566f4764cbc7c18d6e5f72df,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5126331502840927000, guid: b6685ed6566f4764cbc7c18d6e5f72df,
         type: 3}
@@ -662,20 +731,39 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 279914634}
+      objectReference: {fileID: 1735318518}
     - target: {fileID: 8028165279541069022, guid: b6685ed6566f4764cbc7c18d6e5f72df,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: aimPoint
+      value: 
+      objectReference: {fileID: 1803301891}
     - target: {fileID: 8160667073757219058, guid: b6685ed6566f4764cbc7c18d6e5f72df,
         type: 3}
       propertyPath: m_Name
-      value: Rob06
+      value: "\u6363\u86CB\u9B3C"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b6685ed6566f4764cbc7c18d6e5f72df, type: 3}
+--- !u!1 &806464997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8434403727294862672, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914887112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &806465004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806464997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259fbb5eb94168f4fbe1d33ba85f1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 2088733470566228778, guid: ed0e1670bed5248438d49eeaac6c44ff,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2088733470566228778, guid: ed0e1670bed5248438d49eeaac6c44ff,
         type: 3}
@@ -791,21 +879,27 @@ PrefabInstance:
     - target: {fileID: 4322968521756326490, guid: ed0e1670bed5248438d49eeaac6c44ff,
         type: 3}
       propertyPath: m_Name
-      value: Rob17
+      value: "\u5B9D\u7BB1\u602A"
       objectReference: {fileID: 0}
     - target: {fileID: 8608820995557676181, guid: ed0e1670bed5248438d49eeaac6c44ff,
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 279914634}
+      objectReference: {fileID: 1735318518}
     - target: {fileID: 8608820995557676181, guid: ed0e1670bed5248438d49eeaac6c44ff,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: aimPoint
+      value: 
+      objectReference: {fileID: 1803301891}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0e1670bed5248438d49eeaac6c44ff, type: 3}
+--- !u!4 &1735318518 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3604243588130492893, guid: 8b940abfc23c0bd4ab497ed22239bca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1803301890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1803301890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -877,6 +971,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b940abfc23c0bd4ab497ed22239bca9, type: 3}
+--- !u!4 &1803301891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8994624019675771379, guid: 8b940abfc23c0bd4ab497ed22239bca9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1803301890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914887112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -888,7 +988,7 @@ PrefabInstance:
     - target: {fileID: 278750190192072863, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 278750190192072863, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
         type: 3}
@@ -945,15 +1045,15 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 279914634}
-    - target: {fileID: 6586371128627709987, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8434403727294862672, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
         type: 3}
       propertyPath: m_Name
       value: Rob07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434403727294862672, guid: 5afae3f341965b54bb79e3f58d6b0a2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

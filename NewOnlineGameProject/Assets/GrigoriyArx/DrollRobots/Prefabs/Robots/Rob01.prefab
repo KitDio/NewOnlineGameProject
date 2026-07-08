@@ -181,6 +181,37 @@ Transform:
   m_Father: {fileID: 7620682485172389308}
   m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &381326802744243581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8994624019675771379}
+  m_Layer: 0
+  m_Name: AimPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8994624019675771379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381326802744243581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3604243588130492893}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430166195694810335
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,7 +640,7 @@ GameObject:
   - component: {fileID: 571283323280185367}
   - component: {fileID: 5362605087562829251}
   - component: {fileID: 6430326748563972043}
-  - component: {fileID: 1899355675}
+  - component: {fileID: 1735318519}
   m_Layer: 0
   m_Name: Rob01
   m_TagString: Untagged
@@ -626,12 +657,13 @@ Transform:
   m_GameObject: {fileID: 4753705506738065298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8580768154942238406}
   - {fileID: 5082192722684406534}
   - {fileID: 4390044412864835674}
+  - {fileID: 8994624019675771379}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -691,13 +723,13 @@ MonoBehaviour:
   bulletSpawnPointRight: {fileID: 1428066867503302611}
   bulletPrefab: {fileID: 5356239073171952968, guid: 9d257b5838f6d764abbd436b723ddce4,
     type: 3}
-  bulletSpeed: 5
+  bulletSpeed: 10
   particleDalay: 0.2
   moveSpeed: 3
   rotateSpeed: 180
   mouseSensitivity: 200
   cameraPivot: {fileID: 8580768154942238406}
---- !u!114 &1899355675
+--- !u!114 &1735318519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -706,11 +738,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4753705506738065298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a0b69854b28cd458b732cc31f18f93, type: 3}
+  m_Script: {fileID: 11500000, guid: 1490b20326b18684db31abca2b1677a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585545}
-  attackDistance: 20
+  maxHealth: 100
 --- !u!1 &4890713180093812366
 GameObject:
   m_ObjectHideFlags: 0

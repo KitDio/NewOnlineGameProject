@@ -19,12 +19,12 @@ public class Y_PlayerAttack : MonoBehaviour
             {
                 Debug.Log("Hit: " + hit.collider.name);
 
-                Y_EnemyHealth enemy = hit.collider.GetComponent<Y_EnemyHealth>();
+                /*Y_EnemyHealth enemy = hit.collider.GetComponent<Y_EnemyHealth>();
 
                 if (enemy != null)
                 {
                     enemy.TakeDamage(20);
-                }
+                }*/
             }
         }
     }

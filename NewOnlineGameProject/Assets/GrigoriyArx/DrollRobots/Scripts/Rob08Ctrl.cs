@@ -9,7 +9,6 @@ public class Rob08Ctrl : MonoBehaviour
     public float bulletSpeed = 5;
     public float particleDalay = 0.5f;
 
-    private int i = 0;
 
    
     Animator anim;

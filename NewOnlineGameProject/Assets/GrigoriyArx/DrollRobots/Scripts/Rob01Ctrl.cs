@@ -83,7 +83,7 @@ public class Rob01Ctrl : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown("e"))
+            if (Input.GetMouseButtonDown(0))
             {
                 anim.SetBool("shoot", true);
                 StartCoroutine(StartDelay());
