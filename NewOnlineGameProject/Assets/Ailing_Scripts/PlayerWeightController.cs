@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
+using StarterAssets;
 using System.Collections;
-using Synty.AnimationBaseLocomotion.Samples;
 
 public class PlayerWeightController : MonoBehaviourPun
 {
@@ -9,11 +9,12 @@ public class PlayerWeightController : MonoBehaviourPun
     public float maxWeightCapacity = 20f; // 极限重量（超过这个值，速度降到最低）
     public float minimumSpeedMultiplier = 0.2f; // 最低速度倍率（即使超重，也能像蜗牛一样蠕动，保留0.2倍速）
 
-    private SamplePlayerAnimationController movementScript;
+    // 存放 Starter Asset 控制器的引用
+    private ThirdPersonController thirdPersonController;
 
 
-    private float originalWalkSpeed;
-    private float originalRunSpeed;
+    // 记录玩家初始的健康速度
+    private float originalMoveSpeed;
     private float originalSprintSpeed;
 
     // 【新增】用来记录当前身上的临时加速 Buff
@@ -22,14 +23,14 @@ public class PlayerWeightController : MonoBehaviourPun
 
     void Start()
     {
-        movementScript = GetComponent<SamplePlayerAnimationController>();
+        // 尝试获取玩家身上的控制器（兼容第一人称和第三人称）
+        thirdPersonController = GetComponent<ThirdPersonController>();
 
-        // 记录初始的三种速度，作为计算基准
-        if (movementScript != null)
+        // 记录初始速度，作为计算基准
+        if (thirdPersonController != null)
         {
-            originalWalkSpeed = movementScript._walkSpeed;
-            originalRunSpeed = movementScript._runSpeed;
-            originalSprintSpeed = movementScript._sprintSpeed;
+            originalMoveSpeed = thirdPersonController.MoveSpeed;
+            originalSprintSpeed = thirdPersonController.SprintSpeed;
         }
     }
 
@@ -46,15 +47,14 @@ public class PlayerWeightController : MonoBehaviourPun
             float baseSpeedMultiplier = 1f - (currentWeight / maxWeightCapacity);
             baseSpeedMultiplier = Mathf.Clamp(baseSpeedMultiplier, minimumSpeedMultiplier, 1f);
 
-            // 2. 把基础减速和药物Buff乘在一起
+            // 2. 【核心修改】把基础减速 和 药物Buff 乘在一起！
             float finalMultiplier = baseSpeedMultiplier * currentBuffMultiplier;
 
-            // 3. 【核心修改】把算好的最终倍率，乘以初始速度，还给 Synty 的移动脚本
-            if (movementScript != null)
+            // 3. 应用最终速度
+            if (thirdPersonController != null)
             {
-                movementScript._walkSpeed = originalWalkSpeed * finalMultiplier;
-                movementScript._runSpeed = originalRunSpeed * finalMultiplier;
-                movementScript._sprintSpeed = originalSprintSpeed * finalMultiplier;
+                thirdPersonController.MoveSpeed = originalMoveSpeed * finalMultiplier;
+                thirdPersonController.SprintSpeed = originalSprintSpeed * finalMultiplier;
             }
         }
     }

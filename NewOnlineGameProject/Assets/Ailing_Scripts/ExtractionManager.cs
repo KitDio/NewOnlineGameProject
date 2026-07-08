@@ -4,7 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-// 【新增】定义难度枚举
+
 public enum GameDifficulty
 {
     Normal,
