@@ -4,7 +4,7 @@ using StarterAssets;
 using UnityEngine.InputSystem;
 using Cinemachine;
 
-public class PlayerSetup : MonoBehaviourPun
+public class al_PlayerSetup : MonoBehaviourPun
 {
     void Start()
     {

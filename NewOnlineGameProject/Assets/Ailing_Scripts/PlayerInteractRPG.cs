@@ -199,7 +199,21 @@ public class PlayerInteractRPG : MonoBehaviourPun
             // 1. 执行回血逻辑 (Debug 占位)
             if (itemToUse.healthRestore > 0)
             {
-                Debug.Log($"<color=green>【系统提示】呲——！玩家恢复了 {itemToUse.healthRestore} 点生命值！</color>");
+                NetworkHealth health = GetComponent<NetworkHealth>();
+                if (health != null)
+                {
+                    // 判断：只有在没死且不是满血的时候，才允许吃药
+                    if (health.currentHealth > 0 && health.currentHealth < health.maxHealth)
+                    {
+                        health.ApplyHeal(itemToUse.healthRestore);
+                        Debug.Log($"<color=green>【系统提示】呲——！玩家恢复了 {itemToUse.healthRestore} 点生命值！</color>");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("你现在是满血（或者已经死了），不用浪费药！");
+                        return; // 【关键】直接 return 终止代码，这样药就不会被从背包里扣除销毁！
+                    }
+                }
             }
 
             // 2. 执行加速逻辑 (呼叫你身上的 WeightController)

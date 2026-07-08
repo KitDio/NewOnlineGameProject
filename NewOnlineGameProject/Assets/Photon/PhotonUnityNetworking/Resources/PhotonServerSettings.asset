@@ -43,6 +43,12 @@ MonoBehaviour:
   - RPC_TryPickup
   - RPC_ConfirmOpen
   - RPC_TryOpen
+  - RpcPlayAttack
+  - RpcPlayHit
+  - RpcRevive
+  - RpcSetDeadState
+  - RpcTakeDamage
+  - RpcHeal
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
