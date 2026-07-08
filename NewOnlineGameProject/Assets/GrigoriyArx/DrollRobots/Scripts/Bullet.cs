@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Bullet : MonoBehaviour
 {
@@ -31,7 +32,10 @@ public class Bullet : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    enemy.TakeDamage(damage);
+                }
             }
         }
         else
