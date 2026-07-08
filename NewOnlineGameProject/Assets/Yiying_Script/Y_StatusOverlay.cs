@@ -12,13 +12,21 @@ public class Y_StatusOverlay : MonoBehaviour
         freezeOverlay.enabled = false;
     }
 
+    private void ShowOverlay(Image overlay, bool show)
+    {
+        if (overlay != null)
+        {
+            overlay.enabled = show;
+        }
+    }
+
     public void ShowBurn(bool show)
     {
-        burnOverlay.enabled = show;
+        ShowOverlay(burnOverlay, show);
     }
 
     public void ShowFreeze(bool show)
     {
-        freezeOverlay.enabled = show;
+        ShowOverlay(freezeOverlay, show);
     }
 }

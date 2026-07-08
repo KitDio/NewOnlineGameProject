@@ -34,7 +34,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &2229687598103645395
 TrailRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,11 +126,14 @@ TrailRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!1 &8172983923096341488
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +246,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8172983923096341488}
   m_Material: {fileID: 13400000, guid: e419ac8e99c819944b4d6e0898c0a80d, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.15
   m_Height: 0.54
   m_Direction: 2
@@ -261,7 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 8
-  HitSplash: {fileID: 3520991884293114428, guid: a1ffb89bccbe2804c8e35c84fa127b23, type: 3}
+  HitSplash: {fileID: 3520991884293114428, guid: a1ffb89bccbe2804c8e35c84fa127b23,
+    type: 3}
   Speed: 2.2
   StartSpeed: 2
   RotationSpeed: 1.5

@@ -4,12 +4,13 @@ using System.Collections;
 public class Y_EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
-
-    private int currentHealth;
+    public int currentHealth;
 
     public bool IsDead { get; private set; } = false;
 
     private Animator anim;
+
+    public float destroyDelay = 5f;
 
     void Start()
     {
@@ -47,6 +48,8 @@ public class Y_EnemyHealth : MonoBehaviour
         anim.SetBool("die", true);
 
         Debug.Log(gameObject.name + " À¿Õˆ");
+
+        Destroy(gameObject, destroyDelay);
     }
 
     IEnumerator HitReaction()

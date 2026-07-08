@@ -9763,6 +9763,7 @@ MonoBehaviour:
   HitSplash: {fileID: 3520991884293114428, guid: ee9307ba8056cdb4f88d9441b6f98e71,
     type: 3}
   owner: 1
+  damage: 15
 --- !u!54 &6115871117804727897
 Rigidbody:
   m_ObjectHideFlags: 0

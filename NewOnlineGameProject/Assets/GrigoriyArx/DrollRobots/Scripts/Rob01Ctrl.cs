@@ -13,6 +13,7 @@ public class Rob01Ctrl : MonoBehaviour
     public float particleDalay = 0.5f;
 
     public float moveSpeed = 3f;
+    private float normalMoveSpeed;
     public float rotateSpeed = 180f;
 
     public float mouseSensitivity = 200f;
@@ -34,6 +35,8 @@ public class Rob01Ctrl : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        normalMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -122,6 +125,16 @@ public class Rob01Ctrl : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -80f, 80f);
 
         cameraPivot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
+    public void ResetMoveSpeed()
+    {
+        moveSpeed = normalMoveSpeed;
     }
 
     IEnumerator StartDelay()

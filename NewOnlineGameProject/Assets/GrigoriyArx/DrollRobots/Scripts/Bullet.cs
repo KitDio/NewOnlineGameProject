@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     }
 
     public BulletOwner owner;
+    public int damage = 20;
+
     private void Awake()
     {
         Destroy(gameObject, lifeTime);
@@ -29,7 +31,7 @@ public class Bullet : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(20);
+                enemy.TakeDamage(damage);
             }
         }
         else
@@ -38,7 +40,7 @@ public class Bullet : MonoBehaviour
 
             if (player != null)
             {
-                player.TakeDamage(20);
+                player.TakeDamage(damage);
 
                 ApplySpecialEffect(player.gameObject);
             }
