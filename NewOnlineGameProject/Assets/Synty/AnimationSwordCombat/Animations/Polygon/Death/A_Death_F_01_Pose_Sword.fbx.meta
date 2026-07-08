@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e700b1959b9313b4d9d43d5e666417fe
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 22103
   internalIDToNameTable: []
   externalObjects: {}
   materials:
@@ -44,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -168,7 +168,7 @@ ModelImporter:
         weight: 1
       maskType: 1
       maskSource: {fileID: 31900000, guid: ebc8800d7aef22a4aa95591cd452157d, type: 2}
-      additiveReferencePoseFrame: 43.800003
+      additiveReferencePoseFrame: 44
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -177,7 +177,6 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -851,10 +850,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 291806
-  packageName: Synty ANIMATION - Sword Combat
-  packageVersion: 1.0.1
-  assetPath: Assets/__Download/Synty/AnimationSwordCombat/Animations/Polygon/Death/A_Death_F_01_Pose_Sword.fbx
-  uploadId: 686788

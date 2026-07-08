@@ -185,6 +185,9 @@ GameObject:
   - component: {fileID: 7075912433907133316}
   - component: {fileID: 4220366326243450965}
   - component: {fileID: 7096981204589597122}
+  - component: {fileID: 899341361255450362}
+  - component: {fileID: 2454504948325153729}
+  - component: {fileID: 70031956769479245}
   m_Layer: 0
   m_Name: Blade
   m_TagString: Untagged
@@ -271,6 +274,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647fc16dc4d1b48ebb26d6bd8bd64cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &899341361255450362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426529264604018628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 3.2358408, z: 0.15}
+  m_Center: {x: 0.0000002862513, y: 1.6050014, z: 0.0000003337115}
+--- !u!114 &2454504948325153729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426529264604018628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 672785653c459d94ea78aa66a1676fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 20
+  isDamageEnabled: 0
+--- !u!54 &70031956769479245
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426529264604018628}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3904387800903223358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,9 +1377,10 @@ GameObject:
   - component: {fileID: 8839351596147919497}
   - component: {fileID: 2880095290374152204}
   - component: {fileID: 2005587957}
+  - component: {fileID: 5276575479143428653}
   m_Layer: 0
   m_Name: SM_Chr_ScifiWorlds_SpaceSuit_Female_01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1712,11 +1759,14 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: CameraRotationOffset
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 0
     Name: Attack
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 0
     Name: Hit
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsDead
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -1751,8 +1801,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f9e7910706ab534a88b1d89e970ea33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 2454504948325153729}
   isAttacking: 0
   isHit: 0
+--- !u!114 &5276575479143428653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8933498473183914897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a9db033b63a824783e7ac65ba06d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2005587957}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: TakeHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8933530939033230405
 GameObject:
   m_ObjectHideFlags: 0
