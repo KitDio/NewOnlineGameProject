@@ -216,7 +216,7 @@ Transform:
   - {fileID: 4153430170958350}
   - {fileID: 4160457734377654724}
   m_Father: {fileID: 0}
-  m_RootOrder: 175
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33102985539973536
 MeshFilter:
@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 4160457734377654724}
   - component: {fileID: 4604369909195294877}
   - component: {fileID: 5342815696866429816}
+  - component: {fileID: 9147258235671789006}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -340,9 +341,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 4153430170958350}
   doorType: 0
-  openPositionOffset: {x: 1.6, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels:
+  - movingPart: {fileID: 4153430170958350}
+    openPositionOffset: {x: -1.66, y: 0, z: 0}
+    openRotationOffset: {x: 0, y: 0, z: 0}
+    closedPosition: {x: 0, y: 0, z: 0}
+    closedRotation: {x: 0, y: 0, z: 0, w: 0}
+    targetPosition: {x: 0, y: 0, z: 0}
+    targetRotation: {x: 0, y: 0, z: 0, w: 0}
   speed: 5
   closeDelay: 2
+--- !u!114 &9147258235671789006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776550509537914349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

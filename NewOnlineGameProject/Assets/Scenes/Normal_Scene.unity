@@ -3202,10 +3202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1675302949}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &43002505
@@ -9428,10 +9426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1259363799}
   doorType: 0
-  openPositionOffset: {x: 0, y: 1, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &125477454
@@ -9446,10 +9442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1860555019}
   doorType: 0
-  openPositionOffset: {x: -1.7, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &125477455
@@ -9464,10 +9458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1614814408}
   doorType: 0
-  openPositionOffset: {x: 1.7, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &125477456
@@ -9788,12 +9780,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4039000329634412, guid: 9907b55c4dc16594f9c1bbe32904f573,
     type: 3}
   m_PrefabInstance: {fileID: 138967983}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &140656908 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4789097691187164, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 320624949}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &142310798
 PrefabInstance:
@@ -13931,12 +13917,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4429593859674238, guid: 3c8a44bee4ca6bd418ff8018937d3730,
     type: 3}
   m_PrefabInstance: {fileID: 191772772}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &191937403 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1028463203}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &192837838
 PrefabInstance:
@@ -18785,10 +18765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1400616483}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &265480859
@@ -19336,12 +19314,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4764153474945758, guid: acac03912306d8a4889ae21318e9466d,
     type: 3}
   m_PrefabInstance: {fileID: 276375294}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &277543802 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4520547098635452, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494711735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &278056356
 PrefabInstance:
@@ -21105,10 +21077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 894399805}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!1001 &311974875
@@ -22381,12 +22351,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 75, y: 20, z: 5}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!4 &330099919 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4411115659683846, guid: 0baed46f0b1f09244a7ce1967acbce3a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1973180436}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &330500746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26704,10 +26668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1924091031}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!1001 &401407617
@@ -35429,12 +35391,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 545061389}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &545962239 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4411115659683846, guid: 0baed46f0b1f09244a7ce1967acbce3a,
-    type: 3}
-  m_PrefabInstance: {fileID: 163001863}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &546861653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39061,12 +39017,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 591468992}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &591556308 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4994177954243138, guid: 0baed46f0b1f09244a7ce1967acbce3a,
-    type: 3}
-  m_PrefabInstance: {fileID: 163001863}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &591628214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40112,12 +40062,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4835150508649426, guid: 56a5197ff15a7a04ab8780f0f519dd7e,
     type: 3}
   m_PrefabInstance: {fileID: 602703051}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &604190530 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4904122464187830, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 80195606}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &605321933
 PrefabInstance:
@@ -44625,12 +44569,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 657241052}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &659843353 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4520547098635452, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 723326672}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &660499257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45645,10 +45583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 818491235}
   doorType: 0
-  openPositionOffset: {x: 0, y: 1.5, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &671707264
@@ -45663,10 +45599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 903898048}
   doorType: 0
-  openPositionOffset: {x: 0, y: -1.39, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &671707265
@@ -53478,10 +53412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1394219350}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &784295224
@@ -53496,10 +53428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 979485283}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &784295225
@@ -53514,10 +53444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 2147274718}
   doorType: 0
-  openPositionOffset: {x: 1, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &784295226
@@ -55841,12 +55769,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4823766147398630, guid: 7f72c4f6a7c7bce4d80c9b3e2ee0aad9,
     type: 3}
   m_PrefabInstance: {fileID: 817855110}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &818491235 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4716649725423610, guid: 4ff40d720daca1343be2d17c79b68285,
-    type: 3}
-  m_PrefabInstance: {fileID: 1043267742}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &819051778
 PrefabInstance:
@@ -60518,12 +60440,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 894244422}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &894399805 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2034823578}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &895409823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61299,12 +61215,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4724533791255012, guid: f37eb4461c31cda46910037f011d9953,
     type: 3}
   m_PrefabInstance: {fileID: 902271598}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &903898048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4412618904497248, guid: 4ff40d720daca1343be2d17c79b68285,
-    type: 3}
-  m_PrefabInstance: {fileID: 1043267742}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &904840493
 PrefabInstance:
@@ -63043,12 +62953,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4757966264217168, guid: 7dfa220dea28a9d42b1e5ffc4d0ac69f,
     type: 3}
   m_PrefabInstance: {fileID: 1990244959}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &941250957 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4688540028572178, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494711735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &942132331
 PrefabInstance:
@@ -65642,12 +65546,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9208795480711371841, guid: 518c095fe9afcd04d9c7ce45c6db4a43,
     type: 3}
   m_PrefabInstance: {fileID: 974137840}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &979485283 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4688540028572178, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321316700}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &981887572
 PrefabInstance:
@@ -71872,10 +71770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1296217775}
   doorType: 0
-  openPositionOffset: {x: 0, y: 1, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1066634535
@@ -71890,10 +71786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 140656908}
   doorType: 0
-  openPositionOffset: {x: -1.7, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1066634536
@@ -71908,10 +71802,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1238648721}
   doorType: 0
-  openPositionOffset: {x: 1.7, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1066634537
@@ -76610,13 +76502,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122275127}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.34, y: 4.143, z: 116.274}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.549999, y: -1.9070001, z: -7.1660004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1729201848}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1122656129
 PrefabInstance:
@@ -79525,12 +79417,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4877069566409540, guid: 8fa26bc81ba09514eb75fcc978d0838d,
     type: 3}
   m_PrefabInstance: {fileID: 1163316727}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1163475153 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4520547098635452, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 80195606}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1164874013
 PrefabInstance:
@@ -83638,10 +83524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 191937403}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1212205037
@@ -83936,6 +83820,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1214088905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1214395069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214395070}
+  m_Layer: 0
+  m_Name: StartPoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214395070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214395069}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1729201848}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1215449097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85431,12 +85346,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1237473462}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1238648721 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4160947627271084, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 320624949}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239146535
 GameObject:
   m_ObjectHideFlags: 0
@@ -85484,10 +85393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 659843353}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1239146538
@@ -85502,10 +85409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1587547506}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1239146539
@@ -85520,10 +85425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 2001609863}
   doorType: 0
-  openPositionOffset: {x: 1, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1239146540
@@ -87163,12 +87066,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4619385347727526, guid: 7fb0a4c84ad17aa449d8f3fed6c73db2,
     type: 3}
   m_PrefabInstance: {fileID: 1259075785}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1259363799 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4012327992137332, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1028621594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1260979857
 PrefabInstance:
@@ -89404,12 +89301,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4121460630685276, guid: aa5b056f1bc26a641a837ff3604c5ebc,
     type: 3}
   m_PrefabInstance: {fileID: 1292381696}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1296217775 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4012327992137332, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 320624949}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296545804
 GameObject:
@@ -92425,10 +92316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1163475153}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1337065367
@@ -92443,10 +92332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1908683259}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1337065368
@@ -92461,10 +92348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 604190530}
   doorType: 0
-  openPositionOffset: {x: 1, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1337065369
@@ -94344,12 +94229,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4172232541040504, guid: 24bdf4301c6b951408237db18fc1c84e,
     type: 3}
   m_PrefabInstance: {fileID: 1358965233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1359667555 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4904122464187830, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1494711735}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1361703695
 PrefabInstance:
@@ -96651,12 +96530,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1393556753}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1394219350 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4520547098635452, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321316700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1395615506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96969,12 +96842,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4435824318356962, guid: 5b75a75bddba4a440a7c72c6a9157623,
     type: 3}
   m_PrefabInstance: {fileID: 1399383888}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1400616483 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 881938586}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1401175852
 PrefabInstance:
@@ -99324,12 +99191,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123074353217494, guid: 4a4bc55a20b86494384a731beb7b63e7,
     type: 3}
   m_PrefabInstance: {fileID: 1427552603}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1427641552 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1754696454}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1428576998
 PrefabInstance:
@@ -103313,6 +103174,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1489485815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1490359466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490359467}
+  m_Layer: 0
+  m_Name: StartPoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1490359467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490359466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.489998, y: -0.4300003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1729201848}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1491326411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110533,12 +110425,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1586959223}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1587547506 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4688540028572178, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 723326672}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1589106297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112146,12 +112032,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bb693dacd0e1b8b4f88f5bfcdc954556, type: 3}
---- !u!4 &1614814408 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4160947627271084, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1028621594}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1616012815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113920,10 +113800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1707352915}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1632081687
@@ -116574,12 +116452,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1674579800}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1675302949 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 461168685}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1675639667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118889,12 +118761,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1706914885}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1707352915 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 142310798}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1709014192
 GameObject:
   m_ObjectHideFlags: 0
@@ -120117,6 +119983,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1727945575}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1729201847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729201848}
+  m_Layer: 0
+  m_Name: StartPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1729201848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729201847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.89, y: 6.05, z: 123.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1122275128}
+  - {fileID: 2111432783}
+  - {fileID: 1490359467}
+  - {fileID: 1214395070}
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1730408555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120668,12 +120569,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4981153755290296, guid: d14e8b26146d9934eaf728b91aa4da91,
     type: 3}
   m_PrefabInstance: {fileID: 1734465310}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1735339796 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4994177954243138, guid: 0baed46f0b1f09244a7ce1967acbce3a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1973180436}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1736137008
 PrefabInstance:
@@ -127983,10 +127878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1735339796}
   doorType: 0
-  openPositionOffset: {x: 0, y: 1.52, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1842337720
@@ -128001,10 +127894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 330099919}
   doorType: 0
-  openPositionOffset: {x: 0, y: -1.33, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1842337721
@@ -128742,12 +128633,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4473421741959280, guid: 122af87b4dab282498f6876f4938d23e,
     type: 3}
   m_PrefabInstance: {fileID: 1859595786}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1860555019 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4789097691187164, guid: 6e73b4ecf8e8e4749babeb9020c5d8ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 1028621594}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1862028392 stripped
 Transform:
@@ -130083,10 +129968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 591556308}
   doorType: 0
-  openPositionOffset: {x: 0, y: 1.57, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1888903025
@@ -130101,10 +129984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 545962239}
   doorType: 0
-  openPositionOffset: {x: 0, y: -1.33, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1888903026
@@ -131327,12 +131208,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1908557305}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1908683259 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4688540028572178, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 80195606}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1909199006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132554,12 +132429,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4616550305851648, guid: 541b712c0c4028e48a33c23e87b5dd33,
     type: 3}
   m_PrefabInstance: {fileID: 1923776058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1924091031 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4309064293622406, guid: b89410c93f2a383409231a86cfdc0a2b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1891402836}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1925356346
 PrefabInstance:
@@ -137858,10 +137727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 277543802}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1992683431
@@ -137876,10 +137743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 941250957}
   doorType: 0
-  openPositionOffset: {x: -1.42, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!114 &1992683432
@@ -137894,10 +137759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1359667555}
   doorType: 0
-  openPositionOffset: {x: 1, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &1992683433
@@ -138702,12 +138565,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4415534049470078, guid: 4a1b0b67c2527ba49acad77a036a9c76,
     type: 3}
   m_PrefabInstance: {fileID: 2000885098}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2001609863 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4904122464187830, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 723326672}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2005276640 stripped
 Transform:
@@ -143883,10 +143740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 1427641552}
   doorType: 1
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: -80, z: 0}
+  doorPanels: []
   speed: 5
   closeDelay: 2
 --- !u!65 &2087791603
@@ -144874,6 +144729,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2110641391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2111432782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111432783}
+  m_Layer: 0
+  m_Name: StartPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111432783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111432782}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.079998, y: -1.9070001, z: -7.1660004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1729201848}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2112801779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147997,12 +147883,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4608145111246208, guid: 853a032e8eb6aa84a90c95e99fa72146,
     type: 3}
   m_PrefabInstance: {fileID: 2146814887}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2147274718 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4904122464187830, guid: cbc317d1fbdb09540ac91c8eae2ff9b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321316700}
   m_PrefabAsset: {fileID: 0}
 --- !u!225 &9896254240156743
 CanvasGroup:
@@ -170373,7 +170253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7547281629381195311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4fd7f1ba8ecb0042895747d9a476798, type: 3}
   m_Name: 
@@ -170405,13 +170285,32 @@ GameObject:
   m_Component:
   - component: {fileID: 7547281629381195310}
   - component: {fileID: 7547281629381195309}
+  - component: {fileID: 7547281629381195312}
   m_Layer: 0
-  m_Name: NetworkManager
+  m_Name: NetworkManager_GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7547281629381195312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547281629381195311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6af5ec9f3d768f42b0d9ba37b4738cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerArmature
+  spawnPoints:
+  - {fileID: 1122275128}
+  - {fileID: 2111432783}
+  - {fileID: 1490359467}
+  - {fileID: 1214395070}
 --- !u!114 &7555275096218456082
 MonoBehaviour:
   m_ObjectHideFlags: 0

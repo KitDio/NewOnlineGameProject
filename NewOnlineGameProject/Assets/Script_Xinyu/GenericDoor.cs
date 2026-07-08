@@ -1,51 +1,67 @@
 using UnityEngine;
+using Photon.Pun;
+using System.Collections.Generic; // 必须引入这个才能用 List
 
-public class GenericDoor : MonoBehaviour
+// 创建一个新的数据结构，用来在 Inspector 里给每个门板单独设置参数
+[System.Serializable]
+public class DoorPanel
+{
+    public Transform movingPart;
+    public Vector3 openPositionOffset;
+    public Vector3 openRotationOffset;
+
+    [HideInInspector] public Vector3 closedPosition;
+    [HideInInspector] public Quaternion closedRotation;
+    [HideInInspector] public Vector3 targetPosition;
+    [HideInInspector] public Quaternion targetRotation;
+}
+
+public class GenericDoor : MonoBehaviourPun
 {
     public enum DoorType { Slide, Rotate }
-
-    [Header("--- 把要动的门模型拖到这里！ ---")]
-    public Transform movingPart;
 
     [Header("--- 门的基础类型设置 ---")]
     public DoorType doorType = DoorType.Slide;
 
-    [Header("--- 门开启时的目标状态 ---")]
-    public Vector3 openPositionOffset;
-    public Vector3 openRotationOffset;
+    [Header("--- 把你要动的所有门板都加进这个列表里！ ---")]
+    public List<DoorPanel> doorPanels = new List<DoorPanel>();
 
     [Header("--- 动画与延迟 ---")]
     public float speed = 5f;
     public float closeDelay = 2f;
 
-    private Vector3 closedPosition;
-    private Quaternion closedRotation;
-    private Vector3 targetPosition;
-    private Quaternion targetRotation;
-
-    // 【核心新增】记录当前在 Trigger 内部的玩家数量
     private int playersInTriggerCount = 0;
 
     void Start()
     {
-        if (movingPart == null) return;
-        closedPosition = movingPart.localPosition;
-        closedRotation = movingPart.localRotation;
-        targetPosition = closedPosition;
-        targetRotation = closedRotation;
+        // 游戏开始时，记录每一扇门板的初始位置
+        foreach (var panel in doorPanels)
+        {
+            if (panel.movingPart != null)
+            {
+                panel.closedPosition = panel.movingPart.localPosition;
+                panel.closedRotation = panel.movingPart.localRotation;
+                panel.targetPosition = panel.closedPosition;
+                panel.targetRotation = panel.closedRotation;
+            }
+        }
     }
 
     void Update()
     {
-        if (movingPart == null) return;
+        // 每一帧，让列表里的所有门板分别向着自己的目标点平滑移动
+        foreach (var panel in doorPanels)
+        {
+            if (panel.movingPart == null) continue;
 
-        if (doorType == DoorType.Slide)
-        {
-            movingPart.localPosition = Vector3.Lerp(movingPart.localPosition, targetPosition, Time.deltaTime * speed);
-        }
-        else if (doorType == DoorType.Rotate)
-        {
-            movingPart.localRotation = Quaternion.Lerp(movingPart.localRotation, targetRotation, Time.deltaTime * speed);
+            if (doorType == DoorType.Slide)
+            {
+                panel.movingPart.localPosition = Vector3.Lerp(panel.movingPart.localPosition, panel.targetPosition, Time.deltaTime * speed);
+            }
+            else if (doorType == DoorType.Rotate)
+            {
+                panel.movingPart.localRotation = Quaternion.Lerp(panel.movingPart.localRotation, panel.targetRotation, Time.deltaTime * speed);
+            }
         }
     }
 
@@ -53,14 +69,10 @@ public class GenericDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playersInTriggerCount++; // 进来一个人，计数器加 1
-
-            // 只有当第一个人进来时，才真正执行开门和打断关门逻辑
-            if (playersInTriggerCount == 1)
+            PhotonView pView = other.GetComponent<PhotonView>();
+            if (pView != null && pView.IsMine)
             {
-                CancelInvoke("CloseDoor");
-                targetPosition = closedPosition + openPositionOffset;
-                targetRotation = Quaternion.Euler(openRotationOffset);
+                photonView.RPC("RpcUpdateDoorCount", RpcTarget.AllBuffered, 1);
             }
         }
     }
@@ -69,22 +81,43 @@ public class GenericDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playersInTriggerCount--; // 离开一个人，计数器减 1
-
-            // 防御性代码：防止计数器变成负数
-            if (playersInTriggerCount < 0) playersInTriggerCount = 0;
-
-            // 只有当最后一个人也离开了（计数器归零），门才启动关门倒计时！
-            if (playersInTriggerCount == 0)
+            PhotonView pView = other.GetComponent<PhotonView>();
+            if (pView != null && pView.IsMine)
             {
-                Invoke("CloseDoor", closeDelay);
+                photonView.RPC("RpcUpdateDoorCount", RpcTarget.AllBuffered, -1);
             }
+        }
+    }
+
+    [PunRPC]
+    private void RpcUpdateDoorCount(int change)
+    {
+        playersInTriggerCount += change;
+        if (playersInTriggerCount < 0) playersInTriggerCount = 0;
+
+        if (playersInTriggerCount > 0)
+        {
+            CancelInvoke("CloseDoor");
+            // 有人进来，给所有门板分配它们专属的打开目标点
+            foreach (var panel in doorPanels)
+            {
+                panel.targetPosition = panel.closedPosition + panel.openPositionOffset;
+                panel.targetRotation = Quaternion.Euler(panel.openRotationOffset);
+            }
+        }
+        else if (playersInTriggerCount == 0)
+        {
+            Invoke("CloseDoor", closeDelay);
         }
     }
 
     private void CloseDoor()
     {
-        targetPosition = closedPosition;
-        targetRotation = closedRotation;
+        // 没人了，让所有门板各自回原位
+        foreach (var panel in doorPanels)
+        {
+            panel.targetPosition = panel.closedPosition;
+            panel.targetRotation = panel.closedRotation;
+        }
     }
 }

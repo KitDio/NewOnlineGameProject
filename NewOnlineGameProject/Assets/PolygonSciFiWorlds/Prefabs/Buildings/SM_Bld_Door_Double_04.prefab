@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2116767674}
   - component: {fileID: 2116767677}
   - component: {fileID: 2116767676}
-  - component: {fileID: 2116767675}
+  - component: {fileID: 8159449797285418939}
   m_Layer: 0
   m_Name: DoorTrigger
   m_TagString: Untagged
@@ -59,13 +59,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 4631710886155268}
   doorType: 0
-  openPositionOffset: {x: -1.7, y: 0, z: 0}
-  openRotationOffset: {x: 0, y: 0, z: 0}
+  doorPanels:
+  - movingPart: {fileID: 4631710886155268}
+    openPositionOffset: {x: -1.65, y: 0, z: 0}
+    openRotationOffset: {x: 0, y: 0, z: 0}
+    closedPosition: {x: 0, y: 0, z: 0}
+    closedRotation: {x: 0, y: 0, z: 0, w: 0}
+    targetPosition: {x: 0, y: 0, z: 0}
+    targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  - movingPart: {fileID: 4587907893233598}
+    openPositionOffset: {x: 1.66, y: 0, z: 0}
+    openRotationOffset: {x: 0, y: 0, z: 0}
+    closedPosition: {x: 0, y: 0, z: 0}
+    closedRotation: {x: 0, y: 0, z: 0, w: 0}
+    targetPosition: {x: 0, y: 0, z: 0}
+    targetRotation: {x: 0, y: 0, z: 0, w: 0}
   speed: 5
   closeDelay: 2
---- !u!114 &2116767675
+--- !u!114 &8159449797285418939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,15 +86,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116767673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3437e20df824144382b0ddee9f2aca2, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingPart: {fileID: 4587907893233598}
-  doorType: 0
-  openPositionOffset: {x: 0, y: 0, z: 0}
-  openRotationOffset: {x: 1.7, y: 0, z: 0}
-  speed: 5
-  closeDelay: 2
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1368483989799194
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +330,7 @@ Transform:
   - {fileID: 4587907893233598}
   - {fileID: 2116767674}
   m_Father: {fileID: 0}
-  m_RootOrder: 98
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33170171308468600
 MeshFilter:
