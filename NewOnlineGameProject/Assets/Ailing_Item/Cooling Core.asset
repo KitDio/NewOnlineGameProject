@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Quantum Drive
+  m_Name: Cooling Core
   m_EditorClassIdentifier: 
-  itemName: Quantum Drive
+  itemName: Cooling Core
   type: 2
-  icon: {fileID: 21300000, guid: c9dfd36a7aff8064a8d0a8539ea1e653, type: 3}
-  prefab: {fileID: 5213023369582493351, guid: 753e9cfae8b91ab458c1996f4f6dc9c9, type: 3}
-  weight: 12
-  value: 4500
-  resourcePrefabName: Quantum Drive
+  icon: {fileID: 21300000, guid: e15bf70d25e8dd143a86776d67908dce, type: 3}
+  prefab: {fileID: 5530938503266230282, guid: 1b95d17d0e3acf34388053c654208c4a, type: 3}
+  weight: 1.5
+  value: 10000
+  resourcePrefabName: Cooling Core
   isConsumable: 0
   healthRestore: 0
   speedBoostMultiplier: 1

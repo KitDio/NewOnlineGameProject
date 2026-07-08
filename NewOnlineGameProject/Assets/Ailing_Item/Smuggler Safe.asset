@@ -16,8 +16,8 @@ MonoBehaviour:
   type: 2
   icon: {fileID: 21300000, guid: 6b47bdbb4fcf31a49892b07c068fc026, type: 3}
   prefab: {fileID: 5318053734922023344, guid: b81bc33aab5ff7142a7e8127e06c1ef7, type: 3}
-  weight: 8
-  value: 1200
+  weight: 5
+  value: 4800
   resourcePrefabName: Smuggler Safe
   isConsumable: 0
   healthRestore: 0

@@ -128,4 +128,16 @@ public class InventoryManager : MonoBehaviour
         UpdateStatsUI(); // 刷新负重和资产显示为 0
         Debug.Log("背包已清空！");
     }
+
+    public bool IsFull()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i] == null)
+            {
+                return false; // 只要找到了一个空位，就不算满
+            }
+        }
+        return true; // 循环完了都没找到空位，说明满了
+    }
 }

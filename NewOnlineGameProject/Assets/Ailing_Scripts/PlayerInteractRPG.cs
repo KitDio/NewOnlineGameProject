@@ -9,6 +9,7 @@ public class PlayerInteractRPG : MonoBehaviourPun
     private LootBoxController currentLootBox;
     private InventoryManager inventory;
     private ATMController currentATM;
+    private VendingMachineController currentVendingMachine;
 
     void Start()
     {
@@ -64,10 +65,23 @@ public class PlayerInteractRPG : MonoBehaviourPun
         if (atm != null)
         {
             currentATM = atm;
-            InteractUIManager.Instance.interactPromptText.text = "[E] Swipe a Credit Card";
+            InteractUIManager.Instance.interactPromptText.text = "[E] Swipe Card";
 
             if (InteractUIManager.Instance.interactIcon != null)
                 InteractUIManager.Instance.interactIcon.gameObject.SetActive(false); // ATM不需要显示图标
+
+            InteractUIManager.Instance.interactPanel.SetActive(true);
+        }
+
+        VendingMachineController vendingMachine = other.GetComponent<VendingMachineController>();
+        if (vendingMachine != null)
+        {
+            currentVendingMachine = vendingMachine;
+            // 动态显示价格
+            InteractUIManager.Instance.interactPromptText.text = $"[E] Buy Energy Drink\n<size=28><color=red>-${vendingMachine.price}</color></size>";
+
+            if (InteractUIManager.Instance.interactIcon != null)
+                InteractUIManager.Instance.interactIcon.gameObject.SetActive(false);
 
             InteractUIManager.Instance.interactPanel.SetActive(true);
         }
@@ -95,6 +109,12 @@ public class PlayerInteractRPG : MonoBehaviourPun
             currentATM = null;
             InteractUIManager.Instance.interactPanel.SetActive(false);
         }
+
+        if (other.GetComponent<VendingMachineController>() == currentVendingMachine)
+        {
+            currentVendingMachine = null;
+            InteractUIManager.Instance.interactPanel.SetActive(false);
+        }
     }
 
     void Update()
@@ -107,6 +127,15 @@ public class PlayerInteractRPG : MonoBehaviourPun
 
             if (currentItem != null)
             {
+                // 【核心修复】在通知网络销毁物品前，先检查自己能不能装得下！
+                if (inventory != null && inventory.IsFull())
+                {
+                    Debug.LogWarning("背包已满，无法拾取该物品！");
+
+                    return; 
+                }
+
+                // 如果背包没满，再正常走网络拾取流程
                 currentItem.RequestPickup();
                 currentItem = null;
                 if (InteractUIManager.Instance != null) InteractUIManager.Instance.interactPanel.SetActive(false);
@@ -117,13 +146,17 @@ public class PlayerInteractRPG : MonoBehaviourPun
                 currentLootBox = null;
                 if (InteractUIManager.Instance != null) InteractUIManager.Instance.interactPanel.SetActive(false);
             }
-            else if (currentATM != null) // 【新增 ATM 触发逻辑】
+            else if (currentATM != null)
             {
                 currentATM.TryUseATM(inventory);
             }
+
+            else if (currentVendingMachine != null) 
+            {
+                currentVendingMachine.TryBuyItem();
+            }
         }
 
-        // 下方的数字键切换和丢弃逻辑保持不变
         if (Input.GetKeyDown(KeyCode.Alpha1)) inventory.SelectSlot(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) inventory.SelectSlot(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) inventory.SelectSlot(2);

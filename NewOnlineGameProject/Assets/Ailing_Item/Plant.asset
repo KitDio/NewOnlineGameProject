@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Energy Drink
+  m_Name: Plant
   m_EditorClassIdentifier: 
-  itemName: Energy Drink
-  type: 1
-  icon: {fileID: 21300000, guid: 48a0cd94c9e788348be4b1c7c7a00511, type: 3}
-  prefab: {fileID: 5574556457405790782, guid: ac21c4f8394c85c4a997af8ab97b9a79, type: 3}
-  weight: 1
-  value: 500
-  resourcePrefabName: Energy Drink
-  isConsumable: 1
+  itemName: Plant
+  type: 2
+  icon: {fileID: 21300000, guid: 2b783407214ad9c4f9c7bcddc02c6334, type: 3}
+  prefab: {fileID: 5677767607761522858, guid: 200b2cae2992ad1498d248ebfeb1d798, type: 3}
+  weight: 0.5
+  value: 300
+  resourcePrefabName: Plant
+  isConsumable: 0
   healthRestore: 0
-  speedBoostMultiplier: 2
+  speedBoostMultiplier: 1
   speedBoostDuration: 5

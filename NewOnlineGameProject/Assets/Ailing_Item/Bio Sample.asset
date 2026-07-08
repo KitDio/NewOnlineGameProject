@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Qu
+  m_Name: Bio Sample
   m_EditorClassIdentifier: 
-  itemName: Maggot
+  itemName: Bio Sample
   type: 2
-  icon: {fileID: 21300000, guid: 6266689b981c4ac4198594321d57da16, type: 3}
-  prefab: {fileID: 2936471636836059429, guid: 74968d313d717734297cb56f3664c479, type: 3}
-  weight: 1
-  value: 100
-  resourcePrefabName: Qu
+  icon: {fileID: 21300000, guid: 716b5f7da63722d46bf1967e6958cbbe, type: 3}
+  prefab: {fileID: 5231247508098302831, guid: 0fa2d53815ec67145b3d432199982d11, type: 3}
+  weight: 2.5
+  value: 7200
+  resourcePrefabName: Bio Sample
   isConsumable: 0
   healthRestore: 0
   speedBoostMultiplier: 1

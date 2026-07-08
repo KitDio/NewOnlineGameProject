@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Zhanglang
+  m_Name: Battery
   m_EditorClassIdentifier: 
-  itemName: ' Cockroach'
+  itemName: Battery
   type: 2
-  icon: {fileID: 21300000, guid: 6ea869339bb2fac44b03360c9edc314f, type: 3}
-  prefab: {fileID: 9212514052521871533, guid: 518c095fe9afcd04d9c7ce45c6db4a43, type: 3}
-  weight: 0.05
-  value: 100
-  resourcePrefabName: Zhanglang
+  icon: {fileID: 21300000, guid: 3bf92ff873d78504abc054d4b75b49c6, type: 3}
+  prefab: {fileID: 6645934858129523112, guid: 478a6d7078dbe7e4da51ffd43f6034cf, type: 3}
+  weight: 2
+  value: 1000
+  resourcePrefabName: Battery
   isConsumable: 0
   healthRestore: 0
   speedBoostMultiplier: 1

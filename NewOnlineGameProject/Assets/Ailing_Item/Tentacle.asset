@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Sofa
+  m_Name: Tentacle
   m_EditorClassIdentifier: 
-  itemName: Sofa
-  type: 0
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  itemName: Tentacle
+  type: 2
+  icon: {fileID: 21300000, guid: f41b5934cb92cba47924766bbc4ca552, type: 3}
+  prefab: {fileID: 1410172898060731734, guid: 485976957ff8b624c84f0cad652e004a, type: 3}
   weight: 1
-  value: 0
-  resourcePrefabName: 
+  value: 2400
+  resourcePrefabName: Tentacle
   isConsumable: 1
-  healthRestore: 0
+  healthRestore: 50
   speedBoostMultiplier: 1
   speedBoostDuration: 5

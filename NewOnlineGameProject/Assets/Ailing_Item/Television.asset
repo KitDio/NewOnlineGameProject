@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Instant Noodles
+  m_Name: Television
   m_EditorClassIdentifier: 
-  itemName: Instant Noodles
-  type: 1
-  icon: {fileID: 21300000, guid: aa7f7af105a08d54390378afaf41a91f, type: 3}
-  prefab: {fileID: 7515777114002549294, guid: f4d36c5c2f88c84469a3de71dc069306, type: 3}
-  weight: 0.1
-  value: 100
-  resourcePrefabName: Instant Noodles
-  isConsumable: 1
-  healthRestore: -10
+  itemName: Television
+  type: 2
+  icon: {fileID: 21300000, guid: b0b494ebc0a31e04e92ee90c4077b35c, type: 3}
+  prefab: {fileID: 7112585990527147179, guid: 9c43be8f662de484dbcd344661e060f7, type: 3}
+  weight: 8
+  value: 600
+  resourcePrefabName: Television
+  isConsumable: 0
+  healthRestore: 0
   speedBoostMultiplier: 1
-  speedBoostDuration: 10
+  speedBoostDuration: 5

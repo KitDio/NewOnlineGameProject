@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
-  m_Name: Television
+  m_Name: Qu
   m_EditorClassIdentifier: 
-  itemName: Television
-  type: 0
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
-  weight: 1
-  value: 0
-  resourcePrefabName: 
-  isConsumable: 1
+  itemName: Maggot
+  type: 2
+  icon: {fileID: 21300000, guid: 6266689b981c4ac4198594321d57da16, type: 3}
+  prefab: {fileID: 2936471636836059429, guid: 74968d313d717734297cb56f3664c479, type: 3}
+  weight: 0.1
+  value: 20
+  resourcePrefabName: Qu
+  isConsumable: 0
   healthRestore: 0
   speedBoostMultiplier: 1
   speedBoostDuration: 5
