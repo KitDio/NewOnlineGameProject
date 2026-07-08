@@ -8,22 +8,37 @@ public class Y_EnemySpawner : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        Debug.Log("Spawner Start");
+
+        Debug.Log("IsMaster = " + PhotonNetwork.IsMasterClient);
+
         if (!PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Not Master");
             return;
+        }
+
+        Debug.Log("Before SpawnEnemies");
 
         SpawnEnemies();
     }
 
     void SpawnEnemies()
     {
-        Debug.Log("SpawnEnemies Called");
+        Debug.Log($"SpawnPoints Count = {spawnPoints.Length}");
 
-        for (int i = 0; i < spawnPoints.Length; i++)
+        foreach (Transform spawnPoint in spawnPoints)
         {
+            Debug.Log("Spawn At : " + spawnPoint.name);
+
+            GameObject prefab = enemyPrefabs[
+                Random.Range(0, enemyPrefabs.Length)
+            ];
+
             PhotonNetwork.Instantiate(
-                enemyPrefabs[i].name,
-                spawnPoints[i].position,
-                spawnPoints[i].rotation
+                prefab.name,
+                spawnPoint.position,
+                spawnPoint.rotation
             );
         }
     }

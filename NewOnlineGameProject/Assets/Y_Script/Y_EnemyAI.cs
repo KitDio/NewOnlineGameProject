@@ -30,6 +30,10 @@ public class Y_EnemyAI : MonoBehaviour
 
     private Y_EnemyHealth health;
 
+    [Header("Target Scan")]
+    public float scanInterval = 0.5f; // 每0.5秒扫描一次最近玩家
+    private float scanTimer = 0f;
+
     [Header("Wander")]
     public float wanderRadius = 5f;
     public float wanderInterval = 4f;
@@ -70,6 +74,13 @@ public class Y_EnemyAI : MonoBehaviour
         }
 
         anim.SetBool("shoot", false);
+
+        scanTimer += Time.deltaTime;
+        if (scanTimer >= scanInterval)
+        {
+            FindNewTarget(); // 定期重新寻找最近的玩家，实现动态切换仇恨
+            scanTimer = 0f;
+        }
 
         if (player == null)
         {
@@ -187,43 +198,41 @@ public class Y_EnemyAI : MonoBehaviour
 
     void FindNewTarget()
     {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); 
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        // 如果已经在追击中，搜索半径放宽到 loseRange；否则仅在 detectionRange 内搜索
+        float currentSearchRadius = isChasing ? loseRange : detectionRange; 
+        float closestDistance = currentSearchRadius;
 
-        float closestDistance = detectionRange;
+        Transform potentialTarget = null;
+        Y_PlayerHealth potentialHealth = null;
+        Transform potentialAimPoint = null;
 
-        player = null;
-        aimPoint = null;
-        playerHealth = null;
-
-        foreach (GameObject p in players)
+        foreach (GameObject p in players) 
         {
-            Photon.Pun.PhotonView pv = p.GetComponent<Photon.Pun.PhotonView>();
+            Y_PlayerHealth ph = p.GetComponent<Y_PlayerHealth>(); 
+            
+            // 忽略已经死亡的玩家
+            if (ph != null && ph.IsDead) continue;
 
-            Debug.Log(
-                "发现玩家：" +
-                p.name +
-                " Actor=" + pv.OwnerActorNr +
-                " IsMine=" + pv.IsMine);
+            float distance = Vector3.Distance(transform.position, p.transform.position); 
 
-            float distance = Vector3.Distance(transform.position, p.transform.position);
-
-            if (distance < closestDistance)
+            // 寻找距离最近的玩家
+            if (distance < closestDistance) 
             {
-                closestDistance = distance;
-
-                player = p.transform;
-                playerHealth = p.GetComponent<Y_PlayerHealth>();
-
-                aimPoint = p.transform.Find("AimPoint");
-
-                Debug.Log("当前目标：" + p.name + " Actor=" + pv.OwnerActorNr);
+                closestDistance = distance; 
+                potentialTarget = p.transform;
+                potentialHealth = ph;
+                potentialAimPoint = p.transform.Find("AimPoint"); 
             }
         }
 
-        if (player != null)
-        {
-            isChasing = true;
-        }
+        // 应用最新找到的目标
+        player = potentialTarget;
+        playerHealth = potentialHealth;
+        aimPoint = potentialAimPoint;
+
+        // 如果找到了目标，标记为正在追击；如果所有玩家都跑出了 loseRange，取消追击
+        isChasing = (player != null);
     }
 }
