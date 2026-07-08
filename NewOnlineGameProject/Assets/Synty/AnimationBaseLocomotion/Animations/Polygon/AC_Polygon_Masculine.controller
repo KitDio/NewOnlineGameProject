@@ -4540,7 +4540,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8594349942607459158}
-    m_Position: {x: 380, y: 300, z: 0}
+    m_Position: {x: 440, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1621136283582164735}
     m_Position: {x: 430, y: 0, z: 0}
@@ -7627,6 +7627,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: IsStrafing
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 3652802291553319676}
   m_DstState: {fileID: 0}
