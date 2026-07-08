@@ -4,6 +4,10 @@ using Photon.Realtime;
 
 public class QuickTestConnect : MonoBehaviourPunCallbacks
 {
+    [Header("玩家生成设置")]
+    public string playerPrefabName = "PlayerArmature"; // 填入你 Resources 里的玩家预制体名字
+    public Transform spawnPoint; // 把场景里的一个空物体拖进来当出生点，不拖就在坐标 0,0,0 生成
+
     void Start()
     {
         Debug.Log("1. 开始尝试连接 Photon 服务器...");
@@ -16,17 +20,18 @@ public class QuickTestConnect : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom("TestRoom", new RoomOptions { MaxPlayers = 4 }, TypedLobby.Default);
     }
 
-    // ========== 这里是你需要的判断逻辑 ==========
     public override void OnJoinedRoom()
     {
-        // 当控制台打印出这句话时，说明玩家已经彻底进房间了！
         Debug.Log("3. 成功进入房间！当前房间名称: " + PhotonNetwork.CurrentRoom.Name);
         Debug.Log("当前房间人数: " + PhotonNetwork.CurrentRoom.PlayerCount);
 
-        // 如果你需要在这里执行一些逻辑（比如生成玩家模型），就可以写在这里
+        // 【核心修复】在这里生成玩家！只有进房间了，实例化才有效！
+        Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : Vector3.zero;
+        PhotonNetwork.Instantiate(playerPrefabName, spawnPos, Quaternion.identity);
+
+        Debug.Log("4. 玩家网络生成指令已发送！");
     }
 
-    // 额外附赠一个报错监控，如果进房间失败了，至少知道为什么
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.LogError("进入房间失败，原因: " + message);

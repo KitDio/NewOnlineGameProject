@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2891585621662007820}
   - component: {fileID: 4527954501474777325}
   m_Layer: 0
-  m_Name: Zhanglang
+  m_Name: Qu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

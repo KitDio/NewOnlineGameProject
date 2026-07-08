@@ -116,4 +116,16 @@ public class InventoryManager : MonoBehaviour
             totalWeightText.text = $"Weight: <color={weightColor}>{currentWeight} kg</color>";
         }
     }
+
+    public void ClearAllItems()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i] = null;
+            slotUIIcons[i].sprite = null;
+            slotUIIcons[i].enabled = false;
+        }
+        UpdateStatsUI(); // 刷新负重和资产显示为 0
+        Debug.Log("背包已清空！");
+    }
 }
