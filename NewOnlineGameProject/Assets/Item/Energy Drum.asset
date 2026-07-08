@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
+  m_Name: Energy Drum
+  m_EditorClassIdentifier: 
+  itemName: Energy Drum
+  type: 2
+  icon: {fileID: 21300000, guid: 8e0664a10331f7445b06b7b87025eff2, type: 3}
+  prefab: {fileID: 4285992147447500856, guid: 258a811366cdc3e43baab3b56128a407, type: 3}
+  weight: 10
+  value: 2500
+  resourcePrefabName: Energy Drum
+  isConsumable: 0
+  healthRestore: 0
+  speedBoostMultiplier: 1
+  speedBoostDuration: 5

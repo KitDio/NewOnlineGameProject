@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1722387d2d0cf42be6992a05a29d40, type: 3}
+  m_Name: Instant Noodles
+  m_EditorClassIdentifier: 
+  itemName: Instant Noodles
+  type: 1
+  icon: {fileID: 21300000, guid: aa7f7af105a08d54390378afaf41a91f, type: 3}
+  prefab: {fileID: 7515777114002549294, guid: f4d36c5c2f88c84469a3de71dc069306, type: 3}
+  weight: 0.1
+  value: 100
+  resourcePrefabName: Instant Noodles
+  isConsumable: 1
+  healthRestore: -10
+  speedBoostMultiplier: 1
+  speedBoostDuration: 10

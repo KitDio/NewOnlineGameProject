@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2932883964757153053}
   - component: {fileID: 2924051627836422541}
   - component: {fileID: 2891585621662007823}
-  - component: {fileID: 2891585621662007810}
   - component: {fileID: 2891585621662007821}
   - component: {fileID: 2891585621662007820}
   - component: {fileID: 4527954501474777325}
+  - component: {fileID: 2466861879329833346}
   m_Layer: 0
   m_Name: Qu
   m_TagString: Untagged
@@ -30,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2936471636836059429}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2932883964757153053
 MeshFilter:
@@ -102,19 +102,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43000102699160880, guid: 703d6620a38fb9348ab5ce923ad7d0bc, type: 2}
---- !u!65 &2891585621662007810
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2936471636836059429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.8738098, y: 0.9733175, z: 1.4735584}
-  m_Center: {x: -0.017415047, y: 0.09773153, z: -0.13005161}
 --- !u!114 &2891585621662007821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +153,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &2466861879329833346
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936471636836059429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5
+  m_Center: {x: -0.05587697, y: 0.07443647, z: -0.083081186}

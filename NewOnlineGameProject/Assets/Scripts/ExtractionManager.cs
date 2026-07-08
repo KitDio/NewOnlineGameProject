@@ -6,32 +6,44 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class ExtractionManager : MonoBehaviourPunCallbacks
 {
     [Header("关卡设置")]
-    public int targetValue = 2000; // 通关需要达到的总金额
-    private int currentSubmittedValue = 0; // 当前房间已经递交的金额
+    public int targetValue = 2000;
+    private int currentSubmittedValue = 0;
 
     [Header("UI 引用")]
-    public GameObject extractionPanel; // 拖入刚才做的 ExtractionPanel
-    public TextMeshProUGUI progressText; // 拖入 ProgressText
+    public GameObject extractionPanel;
+    public TextMeshProUGUI progressText;
 
     void Start()
     {
         if (extractionPanel != null) extractionPanel.SetActive(false);
 
-        // 游戏刚开始时，由主机负责在房间门上贴一张初始金额为 0 的通告
+        // 【关键修复】游戏一开始（不管有没有连上网），直接强行刷新一次默认的 0 元文本！
+        currentSubmittedValue = 0;
+        UpdateUI();
+    }
+
+    // 【关键修复】把查房间属性的逻辑，挪到“真正进入房间后”再执行
+    public override void OnJoinedRoom()
+    {
         if (PhotonNetwork.IsMasterClient)
         {
+            // 房主负责贴初始的 0 元通告
             Hashtable hash = new Hashtable();
             hash.Add("RoomTotalValue", 0);
             PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
         }
+        else if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("RoomTotalValue"))
+        {
+            // 如果是后进房间的玩家，开局先同步一下当前的真实进度
+            currentSubmittedValue = (int)PhotonNetwork.CurrentRoom.CustomProperties["RoomTotalValue"];
+            UpdateUI(); // 拿到真实数据后，再刷新一次盖掉默认的 0
+        }
     }
 
-    // 【核心同步】每当房间门上的通告单（自定义属性）发生改变时，自动触发！
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.ContainsKey("RoomTotalValue"))
         {
-            // 更新本地的数据，并刷新 UI
             currentSubmittedValue = (int)propertiesThatChanged["RoomTotalValue"];
             UpdateUI();
         }
@@ -41,11 +53,11 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
     {
         if (progressText != null)
         {
+            // 默认显示文本，金额带高亮颜色
             progressText.text = $"Submit Progress:\n<color=#FFD700>${currentSubmittedValue}</color> / ${targetValue}";
         }
     }
 
-    // 给 UI 上的“递交物资”按钮调用的方法
     public void SubmitItems()
     {
         InventoryManager inventory = FindObjectOfType<InventoryManager>();
@@ -54,15 +66,11 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         int valueToSubmit = inventory.GetTotalValue();
         if (valueToSubmit > 0)
         {
-            // 算出新的总额
             int newValue = currentSubmittedValue + valueToSubmit;
-
-            // 把新总额写进通告单，Photon 会自动同步给所有人
             Hashtable hash = new Hashtable();
             hash.Add("RoomTotalValue", newValue);
             PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
 
-            // 清空本地玩家的背包
             inventory.ClearAllItems();
         }
         else
@@ -71,22 +79,60 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         }
     }
 
-    // 给 UI 上的“启动撤离”按钮调用的方法
     public void TryExtract()
     {
         if (currentSubmittedValue >= targetValue)
         {
             Debug.Log("<color=green>【任务成功】已达到目标金额，飞船启动，成功撤离！</color>");
-            // TODO: 未来可以在这里写切换回大厅场景的代码
         }
         else
         {
             Debug.Log("<color=red>【任务失败】金额不足，强行撤离，雇主非常生气，任务失败！</color>");
-            // TODO: 未来可以在这里写死亡/失败界面的代码
         }
     }
 
-    // 给物理触发器控制开关的方法
-    public void OpenExtractionUI() { extractionPanel.SetActive(true); UpdateUI(); }
-    public void CloseExtractionUI() { extractionPanel.SetActive(false); }
+    public void OpenExtractionUI()
+    {
+        extractionPanel.SetActive(true);
+    }
+
+    public void CloseExtractionUI()
+    {
+        extractionPanel.SetActive(false);
+    }
+    void Update()
+    {
+        // 只有当玩家站在撤离点旁边，且撤离面板成功弹出时，快捷键才允许触发
+        if (extractionPanel != null && extractionPanel.activeSelf)
+        {
+            // 按 Q 键递交物资
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                SubmitItems();
+                // 可选：加个小提示，证明是按键触发的
+                Debug.Log("通过快捷键 [Q] 触发了递交！");
+            }
+
+            // 按 X 键尝试撤离
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                TryExtract();
+                Debug.Log("通过快捷键 [X] 触发了撤离！");
+            }
+        }
+    }
+    public void AddFundsDirectly(int amount)
+    {
+        if (!PhotonNetwork.InRoom) return;
+
+        // 算出新的总额
+        int newValue = currentSubmittedValue + amount;
+
+        // 把新总额写进通告单，Photon 会自动同步给所有人，并触发 UpdateUI
+        Hashtable hash = new Hashtable();
+        hash.Add("RoomTotalValue", newValue);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
+
+        Debug.Log($"<color=cyan>【ATM 提示】刷卡成功！直接为全队进度增加了 ${amount}！</color>");
+    }
 }
