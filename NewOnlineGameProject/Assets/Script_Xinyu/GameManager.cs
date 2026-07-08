@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Tooltip("可以拖入场景里的几个空物体作为出生点，防止大家挤在一起")]
     public Transform[] spawnPoints;
 
+    [Header("结算界面的文字")]
+    public ResultTextAnim titleTextAnim;   // 拖入“撤离成功”文字
+    public ResultTextAnim detailsTextAnim; // 拖入详细结算文字
+
+
     void Start()
     {
         // 防御机制：确保玩家是真的连着网进来的，而不是你直接在 Game 场景里点 Play 测试
@@ -50,5 +55,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         // 退回大厅场景（把 0 换成你的 LobbyScene 在 Build Settings 里的序号或名字）
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+    public void ShowResultPanel()
+    {
+        // 1. 大标题：瞬间弹性弹出！
+        titleTextAnim.PlayPopUpEffect(0.5f);
+
+        // 2. 细节数据：像科幻终端一样逐字敲击出来，每个字间隔 0.03 秒
+        detailsTextAnim.PlayTypewriterEffect("Bounty Secured: $10,000\nExtraction Time: 02:45", 0.03f);
     }
 }
