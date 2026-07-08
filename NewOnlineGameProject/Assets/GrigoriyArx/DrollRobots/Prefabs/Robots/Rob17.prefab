@@ -872,7 +872,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 160
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 160
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   detectionRange: 10
   loseRange: 15
   attackRange: 5
-  attackCooldown: 1.5
+  attackCooldown: 4
   bulletSpawnPointLeft: {fileID: 2557625918417605961}
   bulletSpawnPointRight: {fileID: 2692008242168819803}
   bulletPrefab: {fileID: 5356239073171952968, guid: 789b5b26f8add70468b7ad74e0731753,
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 160
-  currentHealth: 0
+  currentHealth: 160
   destroyDelay: 3
 --- !u!114 &1127526915
 MonoBehaviour:
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d94e9385130f234f8c4ce4f10c3a5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 8527286970533700270}
   slider: {fileID: 419050229990634470}
 --- !u!114 &2316264227937321714
 MonoBehaviour:

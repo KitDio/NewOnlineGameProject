@@ -568,7 +568,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 120
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 120
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d94e9385130f234f8c4ce4f10c3a5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 806465004}
   slider: {fileID: 1097493269542438520}
 --- !u!114 &3084633338169833324
 MonoBehaviour:
@@ -1507,7 +1507,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   detectionRange: 10
   loseRange: 15
   attackRange: 2
-  attackCooldown: 5
+  attackCooldown: 3
   bulletSpawnPointLeft: {fileID: 5441971192810073900}
   bulletSpawnPointRight: {fileID: 6412927152597503967}
   bulletPrefab: {fileID: 5356239073171952968, guid: 8b760c610b556d844917f6bc95078484,
@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 120
-  currentHealth: 0
+  currentHealth: 120
   destroyDelay: 3
 --- !u!1 &8619688759510784821
 GameObject:

@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d94e9385130f234f8c4ce4f10c3a5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 587355053}
   slider: {fileID: 2411883472252774617}
 --- !u!114 &328057713496299981
 MonoBehaviour:
@@ -510,7 +510,7 @@ Transform:
   - {fileID: 4957094739141692117}
   - {fileID: 3307032682207808402}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3325367678858617055
 Animator:
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   destroyDelay: 3
 --- !u!1 &2105969074142848338
 GameObject:
@@ -727,7 +727,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
