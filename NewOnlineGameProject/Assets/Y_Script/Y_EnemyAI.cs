@@ -5,7 +5,7 @@ public class Y_EnemyAI : MonoBehaviour
 {
     private Transform player;
     private Transform aimPoint;
-    private Y_PlayerHealth playerHealth;
+    private Y_PlayerStatus playerHealth;
 
     public float detectionRange = 10f;
     public float loseRange = 15f;
@@ -194,12 +194,12 @@ public class Y_EnemyAI : MonoBehaviour
         float closestDistance = currentSearchRadius;
 
         Transform potentialTarget = null;
-        Y_PlayerHealth potentialHealth = null;
+        Y_PlayerStatus potentialHealth = null;
         Transform potentialAimPoint = null;
 
         foreach (GameObject p in players) 
         {
-            Y_PlayerHealth ph = p.GetComponent<Y_PlayerHealth>(); 
+            Y_PlayerStatus ph = p.GetComponent<Y_PlayerStatus>(); 
             
             // 忽略已经死亡的玩家
             if (ph != null && ph.IsDead) continue;

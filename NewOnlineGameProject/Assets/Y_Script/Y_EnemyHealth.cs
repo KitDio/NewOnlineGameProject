@@ -34,6 +34,16 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
     }
+
+    public void ApplyDamage(int damage)
+    {
+        photonView.RPC(
+            nameof(RPC_TakeDamage),
+            RpcTarget.MasterClient,
+            damage
+        );
+    }
+
     [PunRPC]
     public void RPC_TakeDamage(int damage)
     {

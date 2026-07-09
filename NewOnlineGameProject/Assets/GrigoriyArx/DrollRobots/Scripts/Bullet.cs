@@ -40,13 +40,17 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Y_PlayerHealth player = collision.gameObject.GetComponentInParent<Y_PlayerHealth>();
+            NetworkHealth health = collision.gameObject.GetComponentInParent<NetworkHealth>();
+            Y_PlayerStatus status = collision.gameObject.GetComponentInParent<Y_PlayerStatus>();
 
-            if (player != null)
+            if (health != null)
             {
-                player.TakeDamage(damage);
+                health.ApplyDamage(damage);
+            }
 
-                ApplySpecialEffect(player.gameObject);
+            if (status != null)
+            {
+                ApplySpecialEffect(status.gameObject);
             }
         }
 

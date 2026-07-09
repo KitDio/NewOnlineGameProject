@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Y_PlayerHealth : MonoBehaviour
+public class Y_PlayerStatus : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
