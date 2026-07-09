@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class Y_ChestEnemy : MonoBehaviour
 {
     public float wakeDistance = 5f;
-    public Transform player;
 
     private Animator anim;
     private Y_EnemyAI enemyAI;
@@ -23,12 +22,20 @@ public class Y_ChestEnemy : MonoBehaviour
 
         enemyAI.canAct = false;
 
-        healthBar.SetActive(false);   // 一开始隐藏
+        healthBar.SetActive(false);
+
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        enemyAI.FindNewTarget();
+
+        if (enemyAI.player == null)
+            return;
+
+        float distance = Vector3.Distance(
+            transform.position,
+            enemyAI.player.position);
 
         // 还没有变身
         if (!enemyAI.canAct)

@@ -14,10 +14,25 @@ public class Y_ShyEnemy : MonoBehaviour
     {
         enemyAI = GetComponent<Y_EnemyAI>();
         anim = GetComponent<Animator>();
+
+        GameObject obj = GameObject.FindGameObjectWithTag("Player");
+
+        if (obj != null)
+        {
+            player = obj.transform;
+            Debug.Log("找到玩家：" + player.name);
+        }
+        else
+        {
+            Debug.LogError("没有找到 Player");
+        }
     }
 
     void Update()
     {
+
+
+        Debug.Log(player.name);
         Vector3 toEnemy = (transform.position - player.position).normalized;
 
         float dot = Vector3.Dot(player.forward, toEnemy);

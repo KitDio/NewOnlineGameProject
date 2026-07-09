@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using Photon.Pun;
 public class Y_EnemyAI : MonoBehaviour
 {
-    private Transform player;
+    public Transform player;
     private Transform aimPoint;
     private Y_PlayerStatus playerHealth;
 
@@ -60,6 +60,11 @@ public class Y_EnemyAI : MonoBehaviour
 
         if (!canAct)
         {
+            if (player == null)
+            {
+                FindNewTarget();
+            }
+
             agent.ResetPath();
             agent.velocity = Vector3.zero;
 
@@ -185,7 +190,7 @@ public class Y_EnemyAI : MonoBehaviour
         nextWanderTime = Time.time + wanderInterval;
     }
 
-    void FindNewTarget()
+    public void FindNewTarget()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player"); 
 
