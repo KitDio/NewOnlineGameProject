@@ -1410,7 +1410,6 @@ GameObject:
   - component: {fileID: 278750190192072863}
   - component: {fileID: 3370023433512629352}
   - component: {fileID: 6224715290415560608}
-  - component: {fileID: 3077479041568864168}
   - component: {fileID: 701798403}
   - component: {fileID: 6586371128627709987}
   - component: {fileID: 806465004}
@@ -1479,26 +1478,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &3077479041568864168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434403727294862672}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504674d151d26834a841dc92236fa6e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  bulletSpawnPoint:
-  - {fileID: 5441971192810073900}
-  - {fileID: 6412927152597503967}
-  bulletPrefab: {fileID: 5356239073171952968, guid: 8b760c610b556d844917f6bc95078484,
-    type: 3}
-  bulletSpeed: 10
-  particleDalay: 0
 --- !u!195 &701798403
 NavMeshAgent:
   m_ObjectHideFlags: 0

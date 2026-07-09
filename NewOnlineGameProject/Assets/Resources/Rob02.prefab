@@ -566,7 +566,6 @@ GameObject:
   - component: {fileID: 8222055549877989249}
   - component: {fileID: 5819058868682573155}
   - component: {fileID: 8974170993399201103}
-  - component: {fileID: 8984657363382139631}
   - component: {fileID: 554244451}
   - component: {fileID: 2951418116696653759}
   - component: {fileID: 7465363774974912576}
@@ -635,25 +634,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &8984657363382139631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3154103536440053312}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db760e1b20c81748ad013cb85d2ec2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.4
-  battleSpeed: 1.8
-  bulletSpawnPointLeft: {fileID: 434358469287473193}
-  bulletSpawnPointRight: {fileID: 5903810311730070036}
-  bulletPrefab: {fileID: 5356239073171952968, guid: 8fd4b8ada4168784c9a28e695343f067,
-    type: 3}
-  bulletSpeed: 8
 --- !u!195 &554244451
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
-using UnityEngine;
+using Photon.Pun;
 using System.Collections;
+using UnityEngine;
 
 public class Y_EnemyHealth : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class Y_EnemyHealth : MonoBehaviour
 
         Debug.Log(gameObject.name + " À¿Õˆ");
 
-        Destroy(gameObject, destroyDelay);
+        StartCoroutine(DestroyAfterDelay());
     }
 
     IEnumerator HitReaction()
@@ -59,5 +60,15 @@ public class Y_EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         anim.SetBool("hitLeft", false);
+    }
+
+    IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(destroyDelay);
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

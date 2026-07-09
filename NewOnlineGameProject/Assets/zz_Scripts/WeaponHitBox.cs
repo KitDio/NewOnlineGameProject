@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class WeaponHitBox : MonoBehaviour
@@ -9,6 +10,8 @@ public class WeaponHitBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("挥刀玩家 IsMine = " + GetComponentInParent<PhotonView>().IsMine);
+
         // 如果当前没有开启伤害判定（比如只是拿在手里没挥刀），直接忽略
         if (!isDamageEnabled) return;
 
@@ -18,13 +21,12 @@ public class WeaponHitBox : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // 尝试获取对方身上的 NetworkHealth 脚本
-            NetworkHealth enemyHealth = other.GetComponent<NetworkHealth>();
+            Y_EnemyHealth enemyHealth = other.GetComponent<Y_EnemyHealth>();
+
             if (enemyHealth != null)
             {
-                // 调用公有方法扣血
-                enemyHealth.ApplyDamage(weaponDamage);
+                enemyHealth.TakeDamage((int)weaponDamage);
 
-                // 核心手感优化：砍中一次后立刻关闭判定，防止同一个挥刀动作里每一帧都触发一次扣血
                 isDamageEnabled = false;
             }
         }
