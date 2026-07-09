@@ -149928,13 +149928,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successfulPanel: {fileID: 6554910692448647762}
   failedPanel: {fileID: 2932850976873355969}
+  successTitleAnim: {fileID: 8127811089283632343}
+  successDetailAnim: {fileID: 2932850977271232311}
+  failTitleAnim: {fileID: 2932850977561305425}
+  failDetailAnim: {fileID: 2932850976719627290}
   successfulLeaderboardPanel: {fileID: 2932850977582810908}
   failedLeaderboardPanel: {fileID: 2932850977201648297}
   successfulContentArea: {fileID: 2932850977474845257}
   failedContentArea: {fileID: 2932850978089996428}
   playerItemPrefab: {fileID: 3146339830233117250, guid: 1de18c5539ee7e24fada01322d41153a,
     type: 3}
-  panelShowDuration: 3
+  panelShowDuration: 4.5
 --- !u!224 &468678607431169791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -160998,7 +161002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!114 &2932850976719627291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161986,7 +161990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!114 &2932850977271232456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162353,7 +162357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!114 &2932850977561305426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176196,7 +176200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!224 &8128146814133153542
 RectTransform:
   m_ObjectHideFlags: 0

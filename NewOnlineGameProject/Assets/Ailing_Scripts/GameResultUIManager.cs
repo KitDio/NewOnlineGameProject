@@ -14,6 +14,13 @@ public class GameResultUIManager : MonoBehaviour
     public GameObject successfulPanel;
     public GameObject failedPanel;
 
+    [Header("--- 动态文字动画引用 ---")]
+    [Tooltip("分别把你挂了 ResultTextAnim 脚本的 Title 和 Detail 文字拖进来")]
+    public ResultTextAnim successTitleAnim;
+    public ResultTextAnim successDetailAnim;
+    public ResultTextAnim failTitleAnim;
+    public ResultTextAnim failDetailAnim;
+
     [Header("排行榜面板")]
     public GameObject successfulLeaderboardPanel;
     public GameObject failedLeaderboardPanel;
@@ -24,7 +31,7 @@ public class GameResultUIManager : MonoBehaviour
     public GameObject playerItemPrefab;     // 刚才做好的 PlayerLeaderboardItem 预制体
 
     [Header("时间设置")]
-    public float panelShowDuration = 3f;    // 胜利/失败界面展示几秒后跳排行榜
+    public float panelShowDuration = 4f;    // 胜利/失败界面展示几秒后跳排行榜
 
     void Awake()
     {
@@ -54,11 +61,25 @@ public class GameResultUIManager : MonoBehaviour
     {
         HideAllPanels();
 
-        // 1. 弹出 成功/失败 提示大字
-        if (isVictory) successfulPanel.SetActive(true);
-        else failedPanel.SetActive(true);
+        // 1. 弹出 成功/失败 提示大字，并同时触发你的 UI 动效！
+        if (isVictory)
+        {
+            successfulPanel.SetActive(true);
 
-        // 2. 等待 3 秒钟，让玩家感受一下喜悦/悲伤
+            // 呼叫你的动效脚本
+            if (successTitleAnim != null) successTitleAnim.PlayPopUpEffect(0.5f);
+            if (successDetailAnim != null) successDetailAnim.PlayTypewriterEffect("Your team has achieved the goal!", 0.05f);
+        }
+        else
+        {
+            failedPanel.SetActive(true);
+
+            // 呼叫你的动效脚本，使用极简战术风文本
+            if (failTitleAnim != null) failTitleAnim.PlayPopUpEffect(0.5f);
+            if (failDetailAnim != null) failDetailAnim.PlayTypewriterEffect("STATUS: M.I.A.\nAll carried equipment and assets forfeit.\nSignal Lost.", 0.05f);
+        }
+
+        // 2. 等待面板展示（打字机在同时工作）
         yield return new WaitForSeconds(panelShowDuration);
 
         // 3. 隐藏提示大字，弹出对应的排行榜

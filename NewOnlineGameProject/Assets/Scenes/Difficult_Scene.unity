@@ -31170,6 +31170,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8954072717786904777, guid: 3b382f2efb9122649806259dd70e5081,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8954072717786904783, guid: 3b382f2efb9122649806259dd70e5081,
         type: 3}
       propertyPath: m_Name
@@ -152043,13 +152048,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   successfulPanel: {fileID: 688814154549002841}
   failedPanel: {fileID: 8920228115911385802}
+  successTitleAnim: {fileID: 2572497969371903196}
+  successDetailAnim: {fileID: 8920228115511283516}
+  failTitleAnim: {fileID: 8920228115626252634}
+  failDetailAnim: {fileID: 8920228116063837201}
   successfulLeaderboardPanel: {fileID: 8920228115604782871}
   failedLeaderboardPanel: {fileID: 8920228115446942370}
   successfulContentArea: {fileID: 8920228115710714434}
   failedContentArea: {fileID: 8920228115097987207}
   playerItemPrefab: {fileID: 3146339830233117250, guid: 1de18c5539ee7e24fada01322d41153a,
     type: 3}
-  panelShowDuration: 3
+  panelShowDuration: 4.5
 --- !u!4 &618304273510559752
 Transform:
   m_ObjectHideFlags: 0
@@ -161224,7 +161233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!222 &2572497969371903197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -178043,7 +178052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!224 &8920228115511283517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -178391,7 +178400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!224 &8920228115626252635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -179024,7 +179033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a59714dbf41f74b85ec05a4f55a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideOnStart: 1
+  hideOnStart: 0
 --- !u!224 &8920228116063837202
 RectTransform:
   m_ObjectHideFlags: 0
