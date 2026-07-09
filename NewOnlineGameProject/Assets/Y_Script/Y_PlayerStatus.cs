@@ -1,8 +1,11 @@
-using UnityEngine;
+using Synty.AnimationBaseLocomotion.Samples;
 using System.Collections;
+using UnityEngine;
+
 
 public class Y_PlayerStatus : MonoBehaviour
 {
+
     public int maxHealth = 100;
     private int currentHealth;
     public bool IsDead { get; private set; } = false;
@@ -11,13 +14,13 @@ public class Y_PlayerStatus : MonoBehaviour
     private bool isBurning = false;
     private bool isFrozen = false;
 
-    private Rob01Ctrl playerController;
+    private SamplePlayerAnimationController playerController;
 
     void Start()
     {
         currentHealth = maxHealth;
 
-        playerController = GetComponent<Rob01Ctrl>();
+        playerController = GetComponent<SamplePlayerAnimationController>();
     }
 
     
@@ -62,7 +65,7 @@ public class Y_PlayerStatus : MonoBehaviour
             return;
 
         isFrozen = true;
-
+        Debug.Log("Player Frozen");
         if (statusOverlay != null)
         {
             statusOverlay.ShowFreeze(true);

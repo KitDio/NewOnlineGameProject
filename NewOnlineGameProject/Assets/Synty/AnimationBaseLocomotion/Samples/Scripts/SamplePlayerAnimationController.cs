@@ -1548,5 +1548,19 @@ namespace Synty.AnimationBaseLocomotion.Samples
         }
 
         #endregion
+
+        public void SetMoveSpeed(float speed)//±ù¶³¼õËÙ¶ÈµÄ
+        {
+            _walkSpeed = speed;
+            _runSpeed = speed;
+            _sprintSpeed = speed;
+        }
+
+        public void ResetMoveSpeed()
+        {
+            _walkSpeed = 1.4f;
+            _runSpeed = 2.5f;
+            _sprintSpeed = 7f;
+        }
     }
 }
