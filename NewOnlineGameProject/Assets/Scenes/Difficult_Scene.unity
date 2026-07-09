@@ -166688,7 +166688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDifficulty: 0
-  roundDuration: 60
+  roundDuration: 900
   extractionPanel: {fileID: 3185197242697940453}
   progressText: {fileID: 3509239784678068224}
   timerText: {fileID: 668182135}

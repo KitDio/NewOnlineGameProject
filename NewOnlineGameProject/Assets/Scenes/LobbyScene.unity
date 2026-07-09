@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your team needs to take $10000 values from the planet. \nIt's suitable
+  m_text: "Your team needs to submit LESS values from the planet. \nIt's suitable
     for beginner level."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb016a52d9781cd4198a6f3d439ef64c, type: 2}
@@ -7183,7 +7183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your team needs to take $10000 values from the planet. \nIt's suitable
+  m_text: "Your team needs to submit LESS values from the planet. \nIt's suitable
     for beginner level."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb016a52d9781cd4198a6f3d439ef64c, type: 2}

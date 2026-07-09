@@ -86,7 +86,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         selectedGameMode = "Normal";
         if (gameModeDescriptionText != null)
         {
-            gameModeDescriptionText.text = "Your team needs to take $10000 values from the planet.\nIt's suitable for beginner level.";
+            gameModeDescriptionText.text = "Your team needs to submitt less values from the planet.\nIt's suitable for beginner level.";
         }
     }
 
@@ -208,7 +208,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (isOn)
         {
             selectedRandomGameMode = "Normal";
-            randomGameModeDescriptionText.text = "Your team needs to take $10000 values from the planet.\nIt's suitable for beginner level.";
+            randomGameModeDescriptionText.text = "Your team needs to submitt less values from the planet.\nIt's suitable for beginner level.";
         }
     }
 
@@ -218,7 +218,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (isOn)
         {
             selectedRandomGameMode = "Difficult";
-            randomGameModeDescriptionText.text = "Extreme danger! Enemies are relentless.\nTake $20000 values to survive.";
+            randomGameModeDescriptionText.text = "Extreme danger! Enemies are relentless.\nTake MORE values to survive.";
         }
     }
 
@@ -310,7 +310,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (isOn)
         {
             selectedGameMode = "Normal";
-            gameModeDescriptionText.text = "Your team needs to take $10000 values from the planet.\nIt's suitable for beginner level.";
+            gameModeDescriptionText.text = "Your team needs to submitt less values from the planet.\nIt's suitable for beginner level.";
         }
     }
 
@@ -320,7 +320,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (isOn)
         {
             selectedGameMode = "Difficult";
-            gameModeDescriptionText.text = "Extreme danger! Enemies are relentless.\nTake $20000 values to survive.";
+            gameModeDescriptionText.text = "Extreme danger! Enemies are relentless.\nTake MORE values to survive.";
         }
     }
 
