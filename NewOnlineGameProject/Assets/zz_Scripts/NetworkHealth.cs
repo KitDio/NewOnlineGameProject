@@ -94,6 +94,8 @@ public class NetworkHealth : MonoBehaviourPun
         // 1. 網請 HUD 珆尨給數奀
         if (HUDManager.Instance != null)
         {
+
+
             HUDManager.Instance.StartRespawnCountdown(respawnDelay);
         }
 
