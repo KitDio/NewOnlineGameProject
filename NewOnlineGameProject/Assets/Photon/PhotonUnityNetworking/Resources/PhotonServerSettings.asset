@@ -53,6 +53,7 @@ MonoBehaviour:
   - RpcExtractionSuccess
   - TakeDamage
   - RPC_TakeDamage
+  - RpcPlayDoorSound
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
