@@ -29,6 +29,7 @@ public class GameResultUIManager : MonoBehaviour
     public Transform successfulContentArea; // SuccessfulLeaderboardPanel 下的 LeaderboardContent
     public Transform failedContentArea;     // FailedLeaderboardPanel 下的 LeaderboardContent
     public GameObject playerItemPrefab;     // 刚才做好的 PlayerLeaderboardItem 预制体
+    public GameObject playerFailedItemPrefab;
 
     [Header("时间设置")]
     public float panelShowDuration = 4f;    // 胜利/失败界面展示几秒后跳排行榜
@@ -87,17 +88,17 @@ public class GameResultUIManager : MonoBehaviour
         {
             successfulPanel.SetActive(false);
             successfulLeaderboardPanel.SetActive(true);
-            GenerateLeaderboard(successfulContentArea);
+            GenerateLeaderboard(successfulContentArea, playerItemPrefab);
         }
         else
         {
             failedPanel.SetActive(false);
             failedLeaderboardPanel.SetActive(true);
-            GenerateLeaderboard(failedContentArea);
+            GenerateLeaderboard(failedContentArea, playerFailedItemPrefab);
         }
     }
 
-    private void GenerateLeaderboard(Transform contentArea)
+    private void GenerateLeaderboard(Transform contentArea, GameObject prefabToUse)
     {
         // 先清空原本 Content 里可能残留的东西
         foreach (Transform child in contentArea)
@@ -125,7 +126,7 @@ public class GameResultUIManager : MonoBehaviour
             bool isMVP = (rank == 1); // 第一名就是 MVP！
 
             // 实例化预制体，放到 Content 下面
-            GameObject itemGo = Instantiate(playerItemPrefab, contentArea);
+            GameObject itemGo = Instantiate(prefabToUse, contentArea);
             LeaderboardItemUI itemUI = itemGo.GetComponent<LeaderboardItemUI>();
 
             if (itemUI != null)

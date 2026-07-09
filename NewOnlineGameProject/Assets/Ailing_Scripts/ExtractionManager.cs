@@ -19,7 +19,7 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
     private int currentSubmittedValue = 0;
 
     [Header("µπº∆ ±…Ë÷√ (√Î)")]
-    public float roundDuration = 300f;
+    public float roundDuration;
     private double startTime = -1;
     private bool isTimerRunning = false;
     private bool isGameOver = false;
