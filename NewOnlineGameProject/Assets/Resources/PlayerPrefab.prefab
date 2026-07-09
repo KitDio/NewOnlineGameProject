@@ -1497,8 +1497,8 @@ MonoBehaviour:
   _animator: {fileID: 1652665771134574012}
   _controller: {fileID: 1652665771134573985}
   _alwaysStrafe: 1
-  _walkSpeed: 1.4
-  _runSpeed: 2.5
+  _walkSpeed: 5
+  _runSpeed: 10
   _sprintSpeed: 6
   _speedChangeDamping: 10
   _rotationSmoothing: 10

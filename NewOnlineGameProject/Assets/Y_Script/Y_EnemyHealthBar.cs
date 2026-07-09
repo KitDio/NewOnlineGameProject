@@ -14,6 +14,10 @@ public class Y_EnemyHealthBar : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(
+    $"HealthBar:{gameObject.name}  Enemy:{enemyHealth.gameObject.name}  HP:{enemyHealth.currentHealth}"
+);
+
         slider.value = enemyHealth.currentHealth;
     }
 }

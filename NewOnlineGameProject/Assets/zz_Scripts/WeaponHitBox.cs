@@ -10,7 +10,10 @@ public class WeaponHitBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("挥刀玩家 IsMine = " + GetComponentInParent<PhotonView>().IsMine);
+        PhotonView playerPV = GetComponentInParent<PhotonView>();
+
+        if (!playerPV.IsMine)
+            return;
 
         // 如果当前没有开启伤害判定（比如只是拿在手里没挥刀），直接忽略
         if (!isDamageEnabled) return;

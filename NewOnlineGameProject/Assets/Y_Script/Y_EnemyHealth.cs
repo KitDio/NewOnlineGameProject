@@ -2,7 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
-public class Y_EnemyHealth : MonoBehaviourPun
+public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -12,6 +12,22 @@ public class Y_EnemyHealth : MonoBehaviourPun
     private Animator anim;
 
     public float destroyDelay = 5f;
+
+    private bool playedDieAnimation = false;
+
+    void Update()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            if (IsDead && !playedDieAnimation)
+            {
+                playedDieAnimation = true;
+
+                anim.SetBool("hitLeft", false);
+                anim.SetBool("die", true);
+            }
+        }
+    }
 
     void Start()
     {
@@ -77,6 +93,24 @@ public class Y_EnemyHealth : MonoBehaviourPun
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            Debug.Log("Health Writing: " + currentHealth);
+
+            stream.SendNext(currentHealth);
+            stream.SendNext(IsDead);
+        }
+        else
+        {
+            currentHealth = (int)stream.ReceiveNext();
+            IsDead = (bool)stream.ReceiveNext();
+
+            Debug.Log("Health Reading: " + currentHealth);
         }
     }
 }
