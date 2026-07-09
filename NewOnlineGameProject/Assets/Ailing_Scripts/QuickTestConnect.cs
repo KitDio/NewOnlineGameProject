@@ -8,6 +8,9 @@ public class QuickTestConnect : MonoBehaviourPunCallbacks
     public string playerPrefabName = "PlayerArmature"; // 填入你 Resources 里的玩家预制体名字
     public Transform spawnPoint; // 把场景里的一个空物体拖进来当出生点，不拖就在坐标 0,0,0 生成
 
+    [Header("敌人生成")]
+    public GameObject[] enemyPrefabs;
+    public Transform[] enemySpawnPoints;
     void Start()
     {
         Debug.Log("1. 开始尝试连接 Photon 服务器...");
@@ -30,6 +33,17 @@ public class QuickTestConnect : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate(playerPrefabName, spawnPos, Quaternion.identity);
 
         Debug.Log("4. 玩家网络生成指令已发送！");
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            for (int i = 0; i < enemySpawnPoints.Length; i++)
+            {
+                PhotonNetwork.Instantiate(
+                    enemyPrefabs[i].name,
+                    enemySpawnPoints[i].position,
+                    enemySpawnPoints[i].rotation);
+            }
+        }
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
