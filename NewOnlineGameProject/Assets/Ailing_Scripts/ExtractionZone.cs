@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ExtractionZone : MonoBehaviour
 {
@@ -7,20 +8,22 @@ public class ExtractionZone : MonoBehaviour
 
     void Start()
     {
-        // 自动去场景里找大管家
         manager = FindObjectOfType<ExtractionManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // 【关键修复】使用 GetComponentInParent，哪怕碰到了玩家的手脚模型，也能向上找到本体脚本
         PlayerInteractRPG player = other.GetComponentInParent<PlayerInteractRPG>();
         PhotonView pv = other.GetComponentInParent<PhotonView>();
 
-        // 确保玩家存在、网络组件存在，且这个角色是我自己控制的
         if (player != null && pv != null && pv.IsMine)
         {
             if (manager != null) manager.OpenExtractionUI();
+
+            // 【新增】告诉全网：我进圈了！
+            Hashtable hash = new Hashtable();
+            hash.Add("InZone", true);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
     }
 
@@ -32,6 +35,11 @@ public class ExtractionZone : MonoBehaviour
         if (player != null && pv != null && pv.IsMine)
         {
             if (manager != null) manager.CloseExtractionUI();
+
+            // 【新增】告诉全网：我出圈了！
+            Hashtable hash = new Hashtable();
+            hash.Add("InZone", false);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
     }
 }

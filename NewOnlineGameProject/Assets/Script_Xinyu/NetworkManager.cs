@@ -60,8 +60,28 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         //Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        // 游戏一开始，只亮主菜单
-        ActivatePanel(MainMenu_UI_Panel.name);
+        // 【核心修改】：智能判断当前处于什么状态
+        if (PhotonNetwork.InRoom)
+        {
+            // 如果玩家已经在房间里了（说明是从结算界面的 Back Room 回来的）
+            // 1. 激活房间内部面板
+            ActivatePanel(InsideRoomPanel.name);
+
+            // 2. 只有房主才有资格看到 Start 按钮
+            if (startGameButton != null)
+            {
+                startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+            }
+
+            // 3. 顺便刷新一下房间顶部的名字和下方的玩家列表，防止 UI 空白
+            UpdateRoomInfoUI();
+            UpdatePlayerListUI();
+        }
+        else
+        {
+            // 如果不在房间里（说明是刚打开游戏，或者是点了 Back Menu 彻底退出房间回来的）
+            ActivatePanel(MainMenu_UI_Panel.name);
+        }
 
         selectedGameMode = "Normal";
         if (gameModeDescriptionText != null)

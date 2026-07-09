@@ -4,7 +4,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
-
 public enum GameDifficulty
 {
     Normal,
@@ -14,72 +13,163 @@ public enum GameDifficulty
 public class ExtractionManager : MonoBehaviourPunCallbacks
 {
     [Header("关卡难度设置")]
-    [Tooltip("在 Normal 下单人 10000，Difficult 下单人 20000。金额会自动乘以房间人数。")]
     public GameDifficulty currentDifficulty = GameDifficulty.Normal;
 
-    // 动态计算出来的当前目标（实际判定通关看这个数值）
     private int currentTargetValue = 10000;
     private int currentSubmittedValue = 0;
+
+    [Header("倒计时设置 (秒)")]
+    public float roundDuration = 300f;
+    private double startTime = -1;
+    private bool isTimerRunning = false;
+    private bool isGameOver = false;
 
     [Header("UI 引用")]
     public GameObject extractionPanel;
     public TextMeshProUGUI progressText;
+    public TextMeshProUGUI timerText;
 
     void Start()
     {
         if (extractionPanel != null) extractionPanel.SetActive(false);
         currentSubmittedValue = 0;
 
-        // 游戏一开始，先算一次单人的基础钱数显示出来
-        UpdateDynamicTarget();
+        // 【核心大修复】主动判断！如果刚加载出来就已经在房间里了（从大厅过来的），直接初始化！
+        if (PhotonNetwork.InRoom)
+        {
+            InitializeRoomSetup();
+        }
+        else
+        {
+            // 单机测试模式（没联网直接点 Play）
+            startTime = Time.time;
+            isTimerRunning = true;
+            UpdateDynamicTarget();
+            Debug.Log("<color=yellow>【单机测试模式】未连接 Photon 房间，已启用本地离线倒计时！</color>");
+        }
     }
 
     public override void OnJoinedRoom()
     {
+        // 如果是联网状态下，直接在当前场景点 Play，依然会走这里
+        if (!isTimerRunning)
+        {
+            InitializeRoomSetup();
+        }
+    }
+
+    // 【新增】把所有进房间要干的活儿，全塞进这个独立方法里
+    private void InitializeRoomSetup()
+    {
         UpdateDynamicTarget();
+
+        Hashtable myHash = new Hashtable();
+        myHash.Add("InZone", false);
+        myHash.Add("MyScore", 0);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(myHash);
 
         if (PhotonNetwork.IsMasterClient)
         {
             Hashtable hash = new Hashtable();
             hash.Add("RoomTotalValue", 0);
+
+            // 房主负责定下开局时间
+            if (!PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("StartTime"))
+            {
+                double currentNetTime = PhotonNetwork.Time;
+                hash.Add("StartTime", currentNetTime);
+
+                startTime = currentNetTime;
+                isTimerRunning = true;
+            }
+            else
+            {
+                // 如果房主掉线重连了，接着以前的时间算
+                startTime = (double)PhotonNetwork.CurrentRoom.CustomProperties["StartTime"];
+                isTimerRunning = true;
+            }
+
             PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
         }
-        else if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("RoomTotalValue"))
+        else
         {
-            currentSubmittedValue = (int)PhotonNetwork.CurrentRoom.CustomProperties["RoomTotalValue"];
+            // 队友加入时，读取房间里的属性
+            if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("RoomTotalValue"))
+                currentSubmittedValue = (int)PhotonNetwork.CurrentRoom.CustomProperties["RoomTotalValue"];
+
+            if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("StartTime"))
+            {
+                startTime = (double)PhotonNetwork.CurrentRoom.CustomProperties["StartTime"];
+                isTimerRunning = true;
+            }
+
             UpdateUI();
         }
     }
 
-    // ================== 【难度动态核心机制】 ==================
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
+    void Update()
     {
-        UpdateDynamicTarget();
+        if (extractionPanel != null && extractionPanel.activeSelf && !isGameOver)
+        {
+            if (Input.GetKeyDown(KeyCode.Q)) SubmitItems();
+            if (Input.GetKeyDown(KeyCode.X)) TryExtract();
+        }
+
+        if (isTimerRunning && !isGameOver)
+        {
+            double currentTime = PhotonNetwork.InRoom ? PhotonNetwork.Time : (double)Time.time;
+
+            double timePassed = currentTime - startTime;
+            float timeLeft = roundDuration - (float)timePassed;
+
+            if (timeLeft <= 0)
+            {
+                timeLeft = 0;
+                TimeUpFailed();
+            }
+
+            UpdateTimerUI(timeLeft);
+        }
     }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer)
+    private void UpdateTimerUI(float timeLeft)
     {
-        UpdateDynamicTarget();
+        if (timerText != null)
+        {
+            int minutes = Mathf.FloorToInt(timeLeft / 60f);
+            int seconds = Mathf.FloorToInt(timeLeft % 60f);
+
+            string colorHex = timeLeft <= 60f ? "#FF0000" : "#FFFFFF";
+            timerText.text = $"<color={colorHex}>{minutes:00}:{seconds:00}</color>";
+        }
     }
+
+    private void TimeUpFailed()
+    {
+        isGameOver = true;
+        isTimerRunning = false;
+
+        Debug.Log("<color=red>【任务失败】时间耗尽！</color>");
+        if (timerText != null) timerText.text = "<color=red>00:00</color>";
+
+        // 【新增】呼叫结算界面：失败
+        if (GameResultUIManager.Instance != null)
+        {
+            GameResultUIManager.Instance.TriggerGameEnd(false);
+        }
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer) { UpdateDynamicTarget(); }
+    public override void OnPlayerLeftRoom(Player otherPlayer) { UpdateDynamicTarget(); }
 
     private void UpdateDynamicTarget()
     {
-        // 1. 根据你选的难度，确定“单人基础金额”
         int baseAmount = (currentDifficulty == GameDifficulty.Normal) ? 10000 : 20000;
-
-        // 2. 如果进了房间，就乘以人数；如果还没进，就默认算 1 个人的
         int playerCount = (PhotonNetwork.CurrentRoom != null) ? PhotonNetwork.CurrentRoom.PlayerCount : 1;
-
-        // 3. 计算最终目标
         currentTargetValue = baseAmount * playerCount;
-
-        Debug.Log($"<color=yellow>【难度动态调整】当前难度: {currentDifficulty}，房间人数: {playerCount}，目标金额更新为: ${currentTargetValue}</color>");
 
         UpdateUI();
     }
-
-    // ==========================================================
 
     public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
     {
@@ -87,6 +177,12 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         {
             currentSubmittedValue = (int)propertiesThatChanged["RoomTotalValue"];
             UpdateUI();
+        }
+
+        if (propertiesThatChanged.ContainsKey("StartTime"))
+        {
+            startTime = (double)propertiesThatChanged["StartTime"];
+            isTimerRunning = true;
         }
     }
 
@@ -100,16 +196,29 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
 
     public void SubmitItems()
     {
+        if (isGameOver) return;
+
         InventoryManager inventory = FindObjectOfType<InventoryManager>();
         if (inventory == null) return;
 
         int valueToSubmit = inventory.GetTotalValue();
         if (valueToSubmit > 0)
         {
+            // 1. 给房间总进度加钱
             int newValue = currentSubmittedValue + valueToSubmit;
             Hashtable hash = new Hashtable();
             hash.Add("RoomTotalValue", newValue);
             PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
+
+            // 2. 【新增】给自己的个人贡献分加钱！
+            int myCurrentScore = 0;
+            if (PhotonNetwork.LocalPlayer.CustomProperties.ContainsKey("MyScore"))
+            {
+                myCurrentScore = (int)PhotonNetwork.LocalPlayer.CustomProperties["MyScore"];
+            }
+            Hashtable myHash = new Hashtable();
+            myHash.Add("MyScore", myCurrentScore + valueToSubmit);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(myHash);
 
             inventory.ClearAllItems();
         }
@@ -121,9 +230,18 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
 
     public void TryExtract()
     {
+        if (isGameOver) return;
+
         if (currentSubmittedValue >= currentTargetValue)
         {
-            Debug.Log("<color=green>【任务成功】已达到动态目标金额，飞船启动，成功撤离！</color>");
+            if (AreAllPlayersInZone())
+            {
+                photonView.RPC(nameof(RpcExtractionSuccess), RpcTarget.All);
+            }
+            else
+            {
+                Debug.Log("<color=orange>【撤离等待】资金已达标，但还有队员未进入撤离区！等全员到齐后才能撤离！</color>");
+            }
         }
         else
         {
@@ -131,44 +249,62 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
+    public void RpcExtractionSuccess()
+    {
+        isGameOver = true;
+        isTimerRunning = false;
+
+        Debug.Log("<color=green>【全网广播】任务成功！飞船启动，全员成功撤离！</color>");
+
+        // 【新增】呼叫结算界面：胜利
+        if (GameResultUIManager.Instance != null)
+        {
+            GameResultUIManager.Instance.TriggerGameEnd(true);
+        }
+    }
+
+    private bool AreAllPlayersInZone()
+    {
+        if (!PhotonNetwork.InRoom) return true;
+
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (p.CustomProperties.TryGetValue("InZone", out object inZoneObj))
+            {
+                if (!(bool)inZoneObj) return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void AddFundsDirectly(int amount)
     {
-        if (!PhotonNetwork.InRoom) return;
+        if (!PhotonNetwork.InRoom || isGameOver) return;
         int newValue = currentSubmittedValue + amount;
         Hashtable hash = new Hashtable();
         hash.Add("RoomTotalValue", newValue);
         PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
-        Debug.Log($"<color=cyan>【ATM 提示】刷卡成功！增加了 ${amount}！</color>");
     }
 
     public bool TrySpendFunds(int amount)
     {
-        if (!PhotonNetwork.InRoom) return false;
+        if (!PhotonNetwork.InRoom || isGameOver) return false;
         if (currentSubmittedValue >= amount)
         {
             int newValue = currentSubmittedValue - amount;
             Hashtable hash = new Hashtable();
             hash.Add("RoomTotalValue", newValue);
             PhotonNetwork.CurrentRoom.SetCustomProperties(hash);
-            Debug.Log($"<color=green>【售货机提示】购买成功！扣除 ${amount}</color>");
             return true;
         }
-        else
-        {
-            Debug.LogWarning("余额不足！快去搬砖！");
-            return false;
-        }
+        return false;
     }
 
-    public void OpenExtractionUI() { extractionPanel.SetActive(true); }
+    public void OpenExtractionUI() { if (!isGameOver) extractionPanel.SetActive(true); }
     public void CloseExtractionUI() { extractionPanel.SetActive(false); }
-
-    void Update()
-    {
-        if (extractionPanel != null && extractionPanel.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Q)) SubmitItems();
-            if (Input.GetKeyDown(KeyCode.X)) TryExtract();
-        }
-    }
 }
