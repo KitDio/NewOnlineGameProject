@@ -1571,6 +1571,200 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 10900078}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &11563088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11563089}
+  - component: {fileID: 11563091}
+  - component: {fileID: 11563090}
+  m_Layer: 0
+  m_Name: vfx_Portal_v3 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11563089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11563088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000033947545, y: 1.6559057, z: 0.000000062346004}
+  m_LocalScale: {x: 2.256106, y: 2.256106, z: 2.256106}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 506223288}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!73398921 &11563090
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11563088}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!2083052967 &11563091
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11563088}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: abb52106cc7c52a439b5907bb6257049, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 1
+        m_Name: Radius_Out
+        m_Overridden: 1
+      - m_Value: 1.1
+        m_Name: CircleOutSize
+        m_Overridden: 1
+      - m_Value: 7
+        m_Name: PortalTwirlRotation
+        m_Overridden: 1
+      - m_Value: 2000
+        m_Name: ParticlesOutsideRate
+        m_Overridden: 1
+      - m_Value: 10000
+        m_Name: ParticlesStretchedRate
+        m_Overridden: 1
+      - m_Value: 4000
+        m_Name: ParticlesInsideRate
+        m_Overridden: 1
+      - m_Value: 0.025
+        m_Name: ParticlesStretchedSize
+        m_Overridden: 1
+      - m_Value: 1.75
+        m_Name: CircleSize
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: PortalTwirlStrength
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: PortalTwirlScale
+        m_Overridden: 1
+      - m_Value: 3
+        m_Name: PortalTwirlDissolve
+        m_Overridden: 1
+      - m_Value: 1.3
+        m_Name: PortalSize
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array:
+      - m_Value: {x: 0, y: 0}
+        m_Name: PortalTwirlSpeed
+        m_Overridden: 1
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array:
+      - m_Value: {x: 1.0953728, y: 2.9960785, z: 0.5333333, w: 1}
+        m_Name: Color_Portal
+        m_Overridden: 1
+      - m_Value: {x: 0.25098035, y: 1.4980392, z: 0.29693297, w: 1}
+        m_Name: Color_Particles
+        m_Overridden: 1
+      - m_Value: {x: 0.098039195, y: 0.49803922, z: 0.24475819, w: 1}
+        m_Name: Color_Swirl
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ShockwaveColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesImpactColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: FlashColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: CircleParticlesColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: TrailsOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesInsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.1254902, y: 0.24313726, z: 0.7490196, w: 1}
+        m_Name: CenterColor
+        m_Overridden: 1
+      - m_Value: {x: 0.35493988, y: 0.687696, z: 2.1185474, w: 1}
+        m_Name: CircleColor
+        m_Overridden: 1
+      - m_Value: {x: 0.59896106, y: 1.1757383, z: 4.237095, w: 1}
+        m_Name: PortalColor
+        m_Overridden: 1
+      - m_Value: {x: 2.9960785, y: 0.59607846, z: 2.5568628, w: 1}
+        m_Name: CircleOutColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesStretchedColor
+        m_Overridden: 1
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
 --- !u!1001 &12056153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9535,7 +9729,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4691073111205232, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1037911056}
+      addedObject: {fileID: 2014325781}
   m_SourcePrefab: {fileID: 100100000, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc, type: 3}
 --- !u!4 &102855775 stripped
 Transform:
@@ -33096,7 +33290,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4691073111205232, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 468527446}
+      addedObject: {fileID: 7918130395954635496}
   m_SourcePrefab: {fileID: 100100000, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc, type: 3}
 --- !u!4 &401407618 stripped
 Transform:
@@ -38946,98 +39140,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 467658415}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &468527445
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 401407618}
-    m_Modifications:
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904783, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_Name
-      value: vfx_Portal_v1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b382f2efb9122649806259dd70e5081, type: 3}
---- !u!4 &468527446 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-    type: 3}
-  m_PrefabInstance: {fileID: 468527445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &469977703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42139,7 +42241,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4691073111205232, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1067261425}
+      addedObject: {fileID: 11563089}
   m_SourcePrefab: {fileID: 100100000, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc, type: 3}
 --- !u!4 &506223288 stripped
 Transform:
@@ -84377,98 +84479,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1037594930}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1037911055
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 102855775}
-    m_Modifications:
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.2593482
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954072717786904783, guid: 3b382f2efb9122649806259dd70e5081,
-        type: 3}
-      propertyPath: m_Name
-      value: vfx_Portal_v1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b382f2efb9122649806259dd70e5081, type: 3}
---- !u!4 &1037911056 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8954072717786904776, guid: 3b382f2efb9122649806259dd70e5081,
-    type: 3}
-  m_PrefabInstance: {fileID: 1037911055}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1038430330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87342,103 +87352,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1066070118}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1067261424
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 506223288}
-    m_Modifications:
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.000033665
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6559055
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590654, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_Name
-      value: vfx_Portal_v6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590655, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7156595b49af1ef4a99b4eeaae53d6aa, type: 3}
---- !u!4 &1067261425 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1067261424}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1068813933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88982,103 +88895,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4322694313257492, guid: 5b7c91a625e35744c9263b8194bb306c,
     type: 3}
   m_PrefabInstance: {fileID: 1086658419}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1086733647
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 1296573070}
-    m_Modifications:
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.256106
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.000033665
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6559055
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590654, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_Name
-      value: vfx_Portal_v6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2740941862373590655, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7156595b49af1ef4a99b4eeaae53d6aa, type: 3}
---- !u!4 &1086733648 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2740941862373590649, guid: 7156595b49af1ef4a99b4eeaae53d6aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1086733647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1088001955
 PrefabInstance:
@@ -107932,7 +107748,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4691073111205232, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1086733648}
+      addedObject: {fileID: 3643913774111581584}
   m_SourcePrefab: {fileID: 100100000, guid: a4c8d5dd4cdb6434e8f9d1bde4cf1ebc, type: 3}
 --- !u!4 &1296573070 stripped
 Transform:
@@ -169372,6 +169188,248 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012216228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2014325780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014325781}
+  - component: {fileID: 2014325783}
+  - component: {fileID: 2014325782}
+  m_Layer: 0
+  m_Name: vfx_Portal_v7 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2014325781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014325780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalScale: {x: 2.2593482, y: 2.2593482, z: 2.2593482}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 102855775}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!73398921 &2014325782
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014325780}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!2083052967 &2014325783
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014325780}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: abb52106cc7c52a439b5907bb6257049, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 1
+        m_Name: Radius_Out
+        m_Overridden: 1
+      - m_Value: 1.23
+        m_Name: CircleOutSize
+        m_Overridden: 1
+      - m_Value: -3
+        m_Name: PortalTwirlRotation
+        m_Overridden: 1
+      - m_Value: 750
+        m_Name: ParticlesOutsideRate
+        m_Overridden: 1
+      - m_Value: 2000
+        m_Name: ParticlesStretchedRate
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: ParticlesInsideRate
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Delay
+        m_Overridden: 1
+      - m_Value: 0.4
+        m_Name: ShockwaveLifetime
+        m_Overridden: 1
+      - m_Value: 0.8
+        m_Name: ParticlesImpactLifetime
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: ParticlesImpactSpeed
+        m_Overridden: 1
+      - m_Value: 15
+        m_Name: FlashSize
+        m_Overridden: 1
+      - m_Value: 0.08
+        m_Name: CircleParticlesSize
+        m_Overridden: 1
+      - m_Value: 0.8
+        m_Name: CircleParticlesLifetime
+        m_Overridden: 1
+      - m_Value: 500
+        m_Name: CircleParticlesRate
+        m_Overridden: 1
+      - m_Value: 0.03
+        m_Name: ParticlesStretchedSize
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: CircleRate
+        m_Overridden: 1
+      - m_Value: 0.6
+        m_Name: TrailsOutsideSize
+        m_Overridden: 1
+      - m_Value: 1.5
+        m_Name: CenterSize
+        m_Overridden: 1
+      - m_Value: 2.6
+        m_Name: CircleABSize
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array:
+      - m_Value: {x: 0, y: 0.2}
+        m_Name: CircleOutTwirlSpeed
+        m_Overridden: 1
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array:
+      - m_Value: {x: 1.0953728, y: 2.9960785, z: 0.5333333, w: 1}
+        m_Name: Color_Portal
+        m_Overridden: 1
+      - m_Value: {x: 0.25098035, y: 1.4980392, z: 0.29693297, w: 1}
+        m_Name: Color_Particles
+        m_Overridden: 1
+      - m_Value: {x: 0.098039195, y: 0.49803922, z: 0.24475819, w: 1}
+        m_Name: Color_Swirl
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.67894435, z: 0.25098035, w: 1}
+        m_Name: ShockwaveColor
+        m_Overridden: 1
+      - m_Value: {x: 4.5412054, y: 1.1887972, z: 0.40419108, w: 1}
+        m_Name: ParticlesImpactColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.5188999, z: 0.25098035, w: 1}
+        m_Name: FlashColor
+        m_Overridden: 1
+      - m_Value: {x: 4.5412054, y: 1.1887972, z: 0.40419108, w: 1}
+        m_Name: CircleParticlesColor
+        m_Overridden: 1
+      - m_Value: {x: 2.1185474, y: 0.55459356, z: 0.19965369, w: 1}
+        m_Name: ParticlesOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 4.237095, y: 1.1091871, z: 0.39930737, w: 1}
+        m_Name: TrailsOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.25098035, z: 0.28760985, w: 1}
+        m_Name: ParticlesInsideColor
+        m_Overridden: 1
+      - m_Value: {x: 1.8443027, y: 0.6992881, z: 0.3186491, w: 1}
+        m_Name: CenterColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.4862745, z: 0.25882354, w: 1}
+        m_Name: CircleColor
+        m_Overridden: 1
+      - m_Value: {x: 0.9882353, y: 0.6015066, z: 0.17647056, w: 1}
+        m_Name: PortalColor
+        m_Overridden: 1
+      - m_Value: {x: 2.6286669, y: 0.80722845, z: 0.5174541, w: 1}
+        m_Name: CircleOutColor
+        m_Overridden: 1
+      - m_Value: {x: 5.2164755, y: 1.5567491, z: 0.8739645, w: 1}
+        m_Name: ParticlesStretchedColor
+        m_Overridden: 1
+      - m_Value: {x: 0.03529412, y: 0.0003388708, z: 0, w: 1}
+        m_Name: CircleABColor
+        m_Overridden: 1
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: 7ce24389945649649a342c16006e28be, type: 3}
+        m_Name: ShockwaveTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesImpactTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 78f4830e8463ace47a907c71de72b3f0, type: 3}
+        m_Name: FlashTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesOutsideTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesInsideTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: CircleParticlesTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 90a5c9777c73361498c7a9da1016e064, type: 3}
+        m_Name: CircleOutTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 2ab1b614e919e9b40be2b11de4b1daae, type: 3}
+        m_Name: CircleABTexture
+        m_Overridden: 1
+    m_Bool:
+      m_Array: []
 --- !u!1001 &2014395852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192059,6 +192117,127 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!2083052967 &2564390594126511890
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913579297195896415}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: abb52106cc7c52a439b5907bb6257049, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 1
+        m_Name: Radius_Out
+        m_Overridden: 1
+      - m_Value: 1.1
+        m_Name: CircleOutSize
+        m_Overridden: 1
+      - m_Value: 7
+        m_Name: PortalTwirlRotation
+        m_Overridden: 1
+      - m_Value: 2000
+        m_Name: ParticlesOutsideRate
+        m_Overridden: 1
+      - m_Value: 10000
+        m_Name: ParticlesStretchedRate
+        m_Overridden: 1
+      - m_Value: 4000
+        m_Name: ParticlesInsideRate
+        m_Overridden: 1
+      - m_Value: 0.025
+        m_Name: ParticlesStretchedSize
+        m_Overridden: 1
+      - m_Value: 1.75
+        m_Name: CircleSize
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: PortalTwirlStrength
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: PortalTwirlScale
+        m_Overridden: 1
+      - m_Value: 3
+        m_Name: PortalTwirlDissolve
+        m_Overridden: 1
+      - m_Value: 1.3
+        m_Name: PortalSize
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array:
+      - m_Value: {x: 0, y: 0}
+        m_Name: PortalTwirlSpeed
+        m_Overridden: 1
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array:
+      - m_Value: {x: 1.0953728, y: 2.9960785, z: 0.5333333, w: 1}
+        m_Name: Color_Portal
+        m_Overridden: 1
+      - m_Value: {x: 0.25098035, y: 1.4980392, z: 0.29693297, w: 1}
+        m_Name: Color_Particles
+        m_Overridden: 1
+      - m_Value: {x: 0.098039195, y: 0.49803922, z: 0.24475819, w: 1}
+        m_Name: Color_Swirl
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ShockwaveColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesImpactColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: FlashColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: CircleParticlesColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: TrailsOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesInsideColor
+        m_Overridden: 1
+      - m_Value: {x: 0.1254902, y: 0.24313726, z: 0.7490196, w: 1}
+        m_Name: CenterColor
+        m_Overridden: 1
+      - m_Value: {x: 0.35493988, y: 0.687696, z: 2.1185474, w: 1}
+        m_Name: CircleColor
+        m_Overridden: 1
+      - m_Value: {x: 0.59896106, y: 1.1757383, z: 4.237095, w: 1}
+        m_Name: PortalColor
+        m_Overridden: 1
+      - m_Value: {x: 2.9960785, y: 0.59607846, z: 2.5568628, w: 1}
+        m_Name: CircleOutColor
+        m_Overridden: 1
+      - m_Value: {x: 0.2509804, y: 0.4862745, z: 1.4980392, w: 1}
+        m_Name: ParticlesStretchedColor
+        m_Overridden: 1
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
 --- !u!222 &2571809190602765818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -197160,6 +197339,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!73398921 &3569779083037736364
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913579297195896415}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!222 &3572697480342343805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -197335,6 +197554,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.6
+--- !u!4 &3643913774111581584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913579297195896415}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000033665, y: 1.6559057, z: 0}
+  m_LocalScale: {x: 2.256106, y: 2.256106, z: 2.256106}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1296573070}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &3648151128952332342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -200291,6 +200525,24 @@ GameObject:
   - component: {fileID: 4513657638276684096}
   m_Layer: 5
   m_Name: SPR_Vignette
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &4913579297195896415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3643913774111581584}
+  - component: {fileID: 2564390594126511890}
+  - component: {fileID: 3569779083037736364}
+  m_Layer: 0
+  m_Name: vfx_Portal_v3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207931,6 +208183,248 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 525, y: 55}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!4 &7918130395954635496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918130395954635501}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.6500003, z: 0}
+  m_LocalScale: {x: 2.2593482, y: 2.2593482, z: 2.2593482}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 401407618}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!73398921 &7918130395954635498
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918130395954635501}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!2083052967 &7918130395954635499
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918130395954635501}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: abb52106cc7c52a439b5907bb6257049, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 1
+        m_Name: Radius_Out
+        m_Overridden: 1
+      - m_Value: 1.23
+        m_Name: CircleOutSize
+        m_Overridden: 1
+      - m_Value: -3
+        m_Name: PortalTwirlRotation
+        m_Overridden: 1
+      - m_Value: 750
+        m_Name: ParticlesOutsideRate
+        m_Overridden: 1
+      - m_Value: 2000
+        m_Name: ParticlesStretchedRate
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: ParticlesInsideRate
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Delay
+        m_Overridden: 1
+      - m_Value: 0.4
+        m_Name: ShockwaveLifetime
+        m_Overridden: 1
+      - m_Value: 0.8
+        m_Name: ParticlesImpactLifetime
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: ParticlesImpactSpeed
+        m_Overridden: 1
+      - m_Value: 15
+        m_Name: FlashSize
+        m_Overridden: 1
+      - m_Value: 0.08
+        m_Name: CircleParticlesSize
+        m_Overridden: 1
+      - m_Value: 0.8
+        m_Name: CircleParticlesLifetime
+        m_Overridden: 1
+      - m_Value: 500
+        m_Name: CircleParticlesRate
+        m_Overridden: 1
+      - m_Value: 0.03
+        m_Name: ParticlesStretchedSize
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: CircleRate
+        m_Overridden: 1
+      - m_Value: 0.6
+        m_Name: TrailsOutsideSize
+        m_Overridden: 1
+      - m_Value: 1.5
+        m_Name: CenterSize
+        m_Overridden: 1
+      - m_Value: 2.6
+        m_Name: CircleABSize
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array:
+      - m_Value: {x: 0, y: 0.2}
+        m_Name: CircleOutTwirlSpeed
+        m_Overridden: 1
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array:
+      - m_Value: {x: 1.0953728, y: 2.9960785, z: 0.5333333, w: 1}
+        m_Name: Color_Portal
+        m_Overridden: 1
+      - m_Value: {x: 0.25098035, y: 1.4980392, z: 0.29693297, w: 1}
+        m_Name: Color_Particles
+        m_Overridden: 1
+      - m_Value: {x: 0.098039195, y: 0.49803922, z: 0.24475819, w: 1}
+        m_Name: Color_Swirl
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.67894435, z: 0.25098035, w: 1}
+        m_Name: ShockwaveColor
+        m_Overridden: 1
+      - m_Value: {x: 4.5412054, y: 1.1887972, z: 0.40419108, w: 1}
+        m_Name: ParticlesImpactColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.5188999, z: 0.25098035, w: 1}
+        m_Name: FlashColor
+        m_Overridden: 1
+      - m_Value: {x: 4.5412054, y: 1.1887972, z: 0.40419108, w: 1}
+        m_Name: CircleParticlesColor
+        m_Overridden: 1
+      - m_Value: {x: 2.1185474, y: 0.55459356, z: 0.19965369, w: 1}
+        m_Name: ParticlesOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 4.237095, y: 1.1091871, z: 0.39930737, w: 1}
+        m_Name: TrailsOutsideColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.25098035, z: 0.28760985, w: 1}
+        m_Name: ParticlesInsideColor
+        m_Overridden: 1
+      - m_Value: {x: 1.8443027, y: 0.6992881, z: 0.3186491, w: 1}
+        m_Name: CenterColor
+        m_Overridden: 1
+      - m_Value: {x: 1.4980392, y: 0.4862745, z: 0.25882354, w: 1}
+        m_Name: CircleColor
+        m_Overridden: 1
+      - m_Value: {x: 0.9882353, y: 0.6015066, z: 0.17647056, w: 1}
+        m_Name: PortalColor
+        m_Overridden: 1
+      - m_Value: {x: 2.6286669, y: 0.80722845, z: 0.5174541, w: 1}
+        m_Name: CircleOutColor
+        m_Overridden: 1
+      - m_Value: {x: 5.2164755, y: 1.5567491, z: 0.8739645, w: 1}
+        m_Name: ParticlesStretchedColor
+        m_Overridden: 1
+      - m_Value: {x: 0.03529412, y: 0.0003388708, z: 0, w: 1}
+        m_Name: CircleABColor
+        m_Overridden: 1
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: 7ce24389945649649a342c16006e28be, type: 3}
+        m_Name: ShockwaveTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesImpactTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 78f4830e8463ace47a907c71de72b3f0, type: 3}
+        m_Name: FlashTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesOutsideTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: ParticlesInsideTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 72f8fb6ef44d7bd4091573b5fb9e25f3, type: 3}
+        m_Name: CircleParticlesTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 90a5c9777c73361498c7a9da1016e064, type: 3}
+        m_Name: CircleOutTexture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: 2ab1b614e919e9b40be2b11de4b1daae, type: 3}
+        m_Name: CircleABTexture
+        m_Overridden: 1
+    m_Bool:
+      m_Array: []
+--- !u!1 &7918130395954635501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7918130395954635496}
+  - component: {fileID: 7918130395954635499}
+  - component: {fileID: 7918130395954635498}
+  m_Layer: 0
+  m_Name: vfx_Portal_v7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!222 &7923308280135698177
 CanvasRenderer:
   m_ObjectHideFlags: 0
