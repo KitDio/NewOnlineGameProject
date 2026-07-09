@@ -25,7 +25,11 @@ public class WeaponHitBox : MonoBehaviour
 
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage((int)weaponDamage);
+                enemyHealth.photonView.RPC(
+                    "RPC_TakeDamage",
+                    RpcTarget.MasterClient,
+                    (int)weaponDamage
+                );
 
                 isDamageEnabled = false;
             }

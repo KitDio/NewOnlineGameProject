@@ -2,7 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
-public class Y_EnemyHealth : MonoBehaviour
+public class Y_EnemyHealth : MonoBehaviourPun
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -18,7 +18,15 @@ public class Y_EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
     }
+    [PunRPC]
+    public void RPC_TakeDamage(int damage)
+    {
+        // 只有 Master 真正修改血量
+        if (!PhotonNetwork.IsMasterClient)
+            return;
 
+        TakeDamage(damage);
+    }
     public void TakeDamage(int damage)
     {
         if (IsDead)
