@@ -197,9 +197,17 @@ public class PlayerInteractRPG : MonoBehaviourPun
             Debug.Log($"玩家使用了道具：{itemToUse.itemName}");
 
             // 1. 执行回血逻辑 (Debug 占位)
-            if (itemToUse.healthRestore > 0)
+            NetworkHealth health = GetComponent<NetworkHealth>();
+            if (health != null)
             {
-                Debug.Log($"<color=green>【系统提示】呲——！玩家恢复了 {itemToUse.healthRestore} 点生命值！</color>");
+                if (health.currentHealth > 0 && health.currentHealth < health.maxHealth)
+                {
+                    health.ApplyHeal(itemToUse.healthRestore);
+                }
+                else
+                {
+                    return; 
+                }
             }
 
             // 2. 执行加速逻辑 (呼叫你身上的 WeightController)
