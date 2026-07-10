@@ -32,6 +32,14 @@ public class GenericDoor : MonoBehaviourPun
 
     private int playersInTriggerCount = 0;
 
+    [Header("--- 门音效设置 ---")]
+    [Tooltip("直接把当前物体身上的 AudioSource 组件拖进来")]
+    public AudioSource doorAudioSource;
+    public AudioClip openDoorSFX;
+    public AudioClip closeDoorSFX;
+
+    private bool isDoorOpen = false; // 【新增】用于记录当前门状态，防止音效被重复触发
+
     void Start()
     {
         // 游戏开始时，记录每一扇门板的初始位置
@@ -98,7 +106,14 @@ public class GenericDoor : MonoBehaviourPun
         if (playersInTriggerCount > 0)
         {
             CancelInvoke("CloseDoor");
-            // 有人进来，给所有门板分配它们专属的打开目标点
+
+            // 【新增控音逻辑】只有当门之前是关着的时候，才发送全网开门音效广播
+            if (!isDoorOpen)
+            {
+                isDoorOpen = true;
+                photonView.RPC("RpcPlayDoorSound", RpcTarget.All, true);
+            }
+
             foreach (var panel in doorPanels)
             {
                 panel.targetPosition = panel.closedPosition + panel.openPositionOffset;
@@ -118,6 +133,28 @@ public class GenericDoor : MonoBehaviourPun
         {
             panel.targetPosition = panel.closedPosition;
             panel.targetRotation = panel.closedRotation;
+        }
+
+        // 【新增控音逻辑】当执行关门时，发送全网关门音效广播
+        if (isDoorOpen)
+        {
+            isDoorOpen = false;
+            photonView.RPC("RpcPlayDoorSound", RpcTarget.All, false);
+        }
+    }
+
+    [PunRPC]
+    private void RpcPlayDoorSound(bool isOpenSound)
+    {
+        if (doorAudioSource == null) return;
+
+        if (isOpenSound && openDoorSFX != null)
+        {
+            doorAudioSource.PlayOneShot(openDoorSFX);
+        }
+        else if (!isOpenSound && closeDoorSFX != null)
+        {
+            doorAudioSource.PlayOneShot(closeDoorSFX);
         }
     }
 }

@@ -15,6 +15,10 @@ public class PortalTeleporter : MonoBehaviour
     [Tooltip("渐黑/渐亮的时间（秒）")]
     public float fadeDuration = 1f;
 
+    [Header("--- 传送音效设置 ---")]
+    public AudioSource portalAudioSource;
+    public AudioClip teleportSFX;
+
     private static bool isTeleporting = false;
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +39,12 @@ public class PortalTeleporter : MonoBehaviour
     private IEnumerator TeleportSequence(GameObject player)
     {
         isTeleporting = true;
+
+        if (portalAudioSource != null && teleportSFX != null)
+        {
+            // 使用 PlayOneShot 可以确保音效在玩家传走后，依然能在原位置完整播完
+            portalAudioSource.PlayOneShot(teleportSFX);
+        }
 
         // ================= 1. 屏幕逐渐变黑 =================
         float elapsedTime = 0f;

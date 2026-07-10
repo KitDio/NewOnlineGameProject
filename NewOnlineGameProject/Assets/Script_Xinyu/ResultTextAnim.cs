@@ -11,6 +11,12 @@ public class ResultTextAnim : MonoBehaviour
     [Header("--- 测试设置 ---")]
     public bool hideOnStart = true; // 勾选后，游戏一开始文字会先隐藏
 
+    [Header("--- 打字机音效设置 (新加) ---")]
+    [Tooltip("直接把当前物体身上或父物体上的 AudioSource 组件拖进来")]
+    public AudioSource typingAudioSource;
+    [Tooltip("拖入单次按键敲击或嘀嗒声的短音频文件")]
+    public AudioClip typeCharSFX;
+
     void Awake()
     {
         uiText = GetComponent<TMP_Text>();
@@ -30,7 +36,7 @@ public class ResultTextAnim : MonoBehaviour
     public void TestTypewriter()
     {
         // 强行恢复大小，防止之前被缩放成0了
-        transform.localScale = Vector3.one; 
+        transform.localScale = Vector3.one;
         PlayTypewriterEffect(originalText, 0.05f);
     }
 
@@ -38,13 +44,13 @@ public class ResultTextAnim : MonoBehaviour
     public void TestPopUp()
     {
         // 强行恢复文字，防止之前被清空了
-        uiText.text = originalText; 
+        uiText.text = originalText;
         PlayPopUpEffect(0.5f);
     }
 
 
     // ==========================================
-    // 下面是你刚才的实际功能代码（保持不变）
+    // 功能代码
     // ==========================================
     public void PlayTypewriterEffect(string content, float delayBetweenChars = 0.05f)
     {
@@ -57,6 +63,12 @@ public class ResultTextAnim : MonoBehaviour
         uiText.text = "";
         foreach (char c in content)
         {
+            // 如果遇到空格，可以选择不响，听起来更像真实打字（可选优化）
+            if (c != ' ' && typingAudioSource != null && typeCharSFX != null)
+            {
+                typingAudioSource.PlayOneShot(typeCharSFX);
+            }
+
             uiText.text += c;
             yield return new WaitForSeconds(delay);
         }
@@ -72,7 +84,7 @@ public class ResultTextAnim : MonoBehaviour
     {
         transform.localScale = Vector3.zero;
         float timer = 0f;
-        
+
         float overShootTime = duration * 0.7f;
         while (timer < overShootTime)
         {
