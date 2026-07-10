@@ -3788,8 +3788,6 @@ MonoBehaviour:
   randomGameModeDescriptionText: {fileID: 372724477}
   connectRandomProgressBar: {fileID: 1592880187}
   joinRandomRoomStatusText: {fileID: 1547823092}
-  loadingAudioPrefab: {fileID: 1336609330225282355, guid: e5cb4b0c7124cb44d8680eaa9f6966e7,
-    type: 3}
 --- !u!1 &591114930
 GameObject:
   m_ObjectHideFlags: 0
@@ -10500,7 +10498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1596897287
 RectTransform:
   m_ObjectHideFlags: 0
