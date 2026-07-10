@@ -1400,6 +1400,7 @@ GameObject:
   - component: {fileID: 2224725598275492549}
   - component: {fileID: 6857071413881232309}
   - component: {fileID: 5689130333149247243}
+  - component: {fileID: 4224866919845888727}
   m_Layer: 0
   m_Name: SM_Chr_ScifiWorlds_SpaceSuit_Female_01
   m_TagString: Player
@@ -1949,7 +1950,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.906
   m_Pitch: 1
   Loop: 0
@@ -1994,7 +1995,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2034,6 +2035,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4224866919845888727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711073417829989560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc65cc90d83c59499a8d21f696bef6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkLoopClip: {fileID: 8300000, guid: 68fef857af95da4439e7ab048ddc7d21, type: 3}
+  runLoopClip: {fileID: 8300000, guid: 1e28c74717bfdd547b28147b508206b6, type: 3}
+  jumpClip: {fileID: 8300000, guid: 085044c7a05e4d1469195cae27f1bfe2, type: 3}
+  attackClip: {fileID: 8300000, guid: e7e0238058ec24f429825adca19249bc, type: 3}
+  hitClip: {fileID: 8300000, guid: 34beaeb7dec51f34992292425040edf0, type: 3}
+  deathPromptClip: {fileID: 8300000, guid: 97f8f6cdb3cbe704da2be603a7fd8278, type: 3}
 --- !u!1 &1711105696580073532
 GameObject:
   m_ObjectHideFlags: 0

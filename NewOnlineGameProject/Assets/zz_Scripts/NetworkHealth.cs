@@ -84,6 +84,12 @@ public class NetworkHealth : MonoBehaviourPun
         if (photonView.IsMine)
         {
             onDeath?.Invoke();
+
+            PlayerAudio audio = GetComponent<PlayerAudio>();
+            if (audio != null)
+            {
+                audio.PlayDeathPrompt();
+            }
         }
 
         photonView.RPC(nameof(RpcSetDeadState), RpcTarget.All, true);

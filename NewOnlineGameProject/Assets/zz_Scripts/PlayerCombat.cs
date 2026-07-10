@@ -54,6 +54,8 @@ public class PlayerCombat : MonoBehaviourPun
     public void RpcPlayAttack()
     {
         animator.SetTrigger("Attack");
+
+        GetComponent<PlayerAudio>().PlayAttack();
     }
 
     // 这是用来给外界（比如 NetworkHealth 脚本）调用的受击接口
@@ -63,6 +65,8 @@ public class PlayerCombat : MonoBehaviourPun
 
         // 核心修改：通知房间里的所有人播放受击动画
         photonView.RPC(nameof(RpcPlayHit), RpcTarget.All);
+
+       
     }
 
     // 新增：用于全网同步受击动画的 RPC
@@ -75,6 +79,7 @@ public class PlayerCombat : MonoBehaviourPun
         // 锁上受击状态
         isHit = true; //[cite: 7]
         animator.SetTrigger("Hit"); //[cite: 7]
+        GetComponent<PlayerAudio>().PlayHit();
     }
 
     // ==========================================

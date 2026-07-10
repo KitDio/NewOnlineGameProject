@@ -1529,7 +1529,6 @@ MonoBehaviour:
   wanderInterval: 4
   shootClip: {fileID: 8300000, guid: d74dc3a76a7935241b4c86fb491ab13d, type: 3}
   walkClip: {fileID: 8300000, guid: 3e401e61063c6a643b714f30cd3232b6, type: 3}
-  footstepInterval: 0.4
 --- !u!114 &806465004
 MonoBehaviour:
   m_ObjectHideFlags: 0

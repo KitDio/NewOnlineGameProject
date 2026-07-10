@@ -672,6 +672,14 @@ namespace Synty.AnimationBaseLocomotion.Samples
             _animator.SetBool(_isStoppedHash, _isStopped);
 
             _animator.SetFloat(_locomotionStartDirectionHash, _locomotionStartDirection);
+
+            PlayerAudio playerAudio = GetComponent<PlayerAudio>();
+            if (playerAudio != null)
+            {
+                // 如果在空中，传入 0 让声音停止；如果着地，就传入当前的 GaitState (步态)
+                int currentState = _isGrounded ? (int)_currentGait : 0;
+                playerAudio.UpdateMovementSound(currentState);
+            }
         }
 
         #endregion
@@ -1389,6 +1397,7 @@ namespace Synty.AnimationBaseLocomotion.Samples
             _isSliding = false;
 
             _velocity = new Vector3(_velocity.x, _jumpForce, _velocity.z);
+            GetComponent<PlayerAudio>().PlayJump();
         }
 
         /// <summary>
