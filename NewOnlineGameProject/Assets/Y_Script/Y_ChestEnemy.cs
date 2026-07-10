@@ -13,6 +13,8 @@ public class Y_ChestEnemy : MonoBehaviour
 
     public GameObject healthBar;
 
+    private AudioSource audioSource;
+    public AudioClip openClip;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,7 +25,7 @@ public class Y_ChestEnemy : MonoBehaviour
         enemyAI.canAct = false;
 
         healthBar.SetActive(false);
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -61,6 +63,7 @@ public class Y_ChestEnemy : MonoBehaviour
 
     IEnumerator OpenChest()
     {
+        audioSource.PlayOneShot(openClip);
         yield return new WaitForSeconds(1.6f);
 
         enemyAI.canAct = true;
@@ -70,6 +73,7 @@ public class Y_ChestEnemy : MonoBehaviour
 
     IEnumerator CloseChest()
     {
+        audioSource.PlayOneShot(openClip);
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
         agent.ResetPath();

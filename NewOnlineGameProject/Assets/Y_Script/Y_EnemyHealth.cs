@@ -15,6 +15,10 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
 
     private bool playedDieAnimation = false;
 
+    private AudioSource audioSource;
+    public AudioClip hitClip;
+    public AudioClip deathClip;
+
     void Update()
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -25,6 +29,7 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
 
                 anim.SetBool("hitLeft", false);
                 anim.SetBool("die", true);
+                audioSource.PlayOneShot(deathClip);
             }
         }
     }
@@ -33,6 +38,7 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
     {
         currentHealth = maxHealth;
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ApplyDamage(int damage)
@@ -81,6 +87,7 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
 
         anim.SetBool("hitLeft", false);
         anim.SetBool("die", true);
+        audioSource.PlayOneShot(deathClip);
 
         Debug.Log(gameObject.name + " À¿Õˆ");
 
@@ -90,6 +97,7 @@ public class Y_EnemyHealth : MonoBehaviourPun, IPunObservable
     IEnumerator HitReaction()
     {
         anim.SetBool("hitLeft", true);
+        audioSource.PlayOneShot(hitClip);
 
         yield return new WaitForSeconds(0.2f);
 

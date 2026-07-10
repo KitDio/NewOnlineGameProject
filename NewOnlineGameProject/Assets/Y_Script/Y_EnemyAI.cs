@@ -37,12 +37,17 @@ public class Y_EnemyAI : MonoBehaviour
     private float nextWanderTime;
     private Vector3 wanderTarget;
 
+    private AudioSource audioSource;
+    public AudioClip shootClip;
+    public AudioClip walkClip;
+    private float nextFootstepTime = 0f;
+    private float footstepInterval = 0.8f;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         health = GetComponent<Y_EnemyHealth>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -129,6 +134,7 @@ public class Y_EnemyAI : MonoBehaviour
                         if (Time.time >= nextAttackTime)
                         {
                             anim.SetBool("shoot", true);
+                            audioSource.PlayOneShot(shootClip);
 
                             Vector3 target = aimPoint.position;
 
@@ -170,6 +176,18 @@ public class Y_EnemyAI : MonoBehaviour
 
         // 根据移动速度播放动画
         anim.SetFloat("Speed", agent.velocity.magnitude > 0.1f ? 1f : 0f);
+        if (agent.velocity.magnitude > 0.1f)
+        {
+            if (Time.time >= nextFootstepTime)
+            {
+                if (walkClip != null)
+                {
+                    audioSource.PlayOneShot(walkClip);
+                }
+
+                nextFootstepTime = Time.time + footstepInterval;
+            }
+        }
     }
 
     void Wander()
