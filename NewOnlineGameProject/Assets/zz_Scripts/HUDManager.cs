@@ -12,7 +12,6 @@ public class HUDManager : MonoBehaviour
     public Slider staminaSlider;
     public Slider energySlider;
 
-    public GameObject energyContent;
 
     // 【新增】头像框下方的名字文本
     public TextMeshProUGUI avatarNameText;
@@ -55,16 +54,25 @@ public class HUDManager : MonoBehaviour
 
         if (energySlider != null && localPlayerWeight != null)
         {
-            // 如果还有 Buff 时间，就显示能量条并更新百分比
-            if (localPlayerWeight.currentBuffDuration > 0)
+            // 【核心修复】必须确保分母大于 0，防止触发 NaN 崩溃 UI
+            if (localPlayerWeight.maxBuffDuration > 0)
             {
-                energyContent.SetActive(true);
+                // 只有在喝了饮料有 Buff 的时候，才更新进度比例
                 energySlider.value = localPlayerWeight.currentBuffDuration / localPlayerWeight.maxBuffDuration;
             }
-            else // 如果没喝饮料，或者时间到了，直接隐藏整个能量条
+            else
             {
-                energyContent.SetActive(false);
+                // 没有 Buff（或者时间结束）时，进度条归零
+                energySlider.value = 0;
             }
+        }
+        else if (energySlider == null) // 【核心修复】改成双等号
+        {
+            Debug.Log("未绑定 energySlider");
+        }
+        else if (localPlayerWeight == null) // 【核心修复】改成双等号
+        {
+            Debug.Log("未找到 localPlayerWeight");
         }
 
         if (vignetteImage != null)
@@ -112,6 +120,7 @@ public class HUDManager : MonoBehaviour
                 localPlayerHealth = hp;
                 localPlayerStamina = hp.GetComponent<NetworkStamina>();
 
+                localPlayerWeight = hp.GetComponent<PlayerWeightController>();
 
                 //获取玩家名字
                 if (avatarNameText != null)
