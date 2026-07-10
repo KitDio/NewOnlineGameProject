@@ -42,10 +42,6 @@ public class Y_ChestEnemy : MonoBehaviour
         {
             if (distance <= wakeDistance && !isOpening)
             {
-                isOpening = true;
-
-                anim.SetBool("close", false);
-
                 StartCoroutine(OpenChest());
             }
         }
@@ -61,28 +57,22 @@ public class Y_ChestEnemy : MonoBehaviour
 
     IEnumerator OpenChest()
     {
+        isOpening = true;
+        anim.SetBool("close", false);
         yield return new WaitForSeconds(1.6f);
-
         enemyAI.canAct = true;
-
         healthBar.SetActive(true);
     }
 
     IEnumerator CloseChest()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
-
         agent.ResetPath();
         agent.velocity = Vector3.zero;
-
         enemyAI.canAct = false;
-
         anim.SetBool("close", true);
-
         healthBar.SetActive(false);
-
         isOpening = false;
-
         yield return null;
     }
 }

@@ -30,8 +30,6 @@ public class Y_ShyEnemy : MonoBehaviour
 
     void Update()
     {
-
-
         Debug.Log(player.name);
         Vector3 toEnemy = (transform.position - player.position).normalized;
 
