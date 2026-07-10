@@ -158999,7 +158999,6 @@ MonoBehaviour:
   healthSlider: {fileID: 7327535582365661707}
   staminaSlider: {fileID: 7724379650003489601}
   energySlider: {fileID: 1961991854763539398}
-  energyContent: {fileID: 7064815742564071607}
   avatarNameText: {fileID: 2495126542750541283}
   respawnText: {fileID: 6206252956119878588}
   vignetteImage: {fileID: 3089879726068170172}
