@@ -74,19 +74,25 @@ public class PlayerWeightController : MonoBehaviourPun
         maxBuffDuration = duration;
         currentBuffDuration = duration;
 
-        // 只要时间大于 0，就每一帧扣除时间
+        Debug.Log($"【探针1】饮料已喝下！总时间设置完毕：{maxBuffDuration}");
+
         while (currentBuffDuration > 0)
         {
             currentBuffDuration -= Time.deltaTime;
-            yield return null; // 等待下一帧
+
+            // 每隔 1 秒打印一次，防止疯狂刷屏导致卡顿
+            if (Mathf.FloorToInt(currentBuffDuration * 10) % 10 == 0)
+            {
+                Debug.Log($"【探针2】倒计时运行中，剩余时间：{currentBuffDuration}");
+            }
+
+            yield return null;
         }
 
-        // 倒计时结束，重置参数
         currentBuffDuration = 0f;
         currentBuffMultiplier = 1f;
-        Debug.Log("【系统提示】药效已过，移速恢复正常。"); //[cite: 15]
+        Debug.Log("【系统提示】药效已过，移速恢复正常。");
     }
-
     // 【新增】被冰冻子弹打中调用的方法
     public void ApplySpeedDebuff(float debuffMultiplier, float duration)
     {
