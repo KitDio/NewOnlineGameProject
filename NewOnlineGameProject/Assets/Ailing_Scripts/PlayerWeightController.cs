@@ -9,6 +9,10 @@ public class PlayerWeightController : MonoBehaviourPun
     public float maxWeightCapacity = 20f;
     public float minimumSpeedMultiplier = 0.2f;
 
+    [Header("Buff 状态")]
+    public float maxBuffDuration = 0f;
+    public float currentBuffDuration = 0f;
+
     private SamplePlayerAnimationController movementScript;
     private float originalWalkSpeed;
     private float originalRunSpeed;
@@ -67,9 +71,20 @@ public class PlayerWeightController : MonoBehaviourPun
     private IEnumerator SpeedBuffRoutine(float buffMultiplier, float duration)
     {
         currentBuffMultiplier = buffMultiplier;
-        yield return new WaitForSeconds(duration);
+        maxBuffDuration = duration;
+        currentBuffDuration = duration;
+
+        // 只要时间大于 0，就每一帧扣除时间
+        while (currentBuffDuration > 0)
+        {
+            currentBuffDuration -= Time.deltaTime;
+            yield return null; // 等待下一帧
+        }
+
+        // 倒计时结束，重置参数
+        currentBuffDuration = 0f;
         currentBuffMultiplier = 1f;
-        Debug.Log("【系统提示】药效已过，移速恢复正常。");
+        Debug.Log("【系统提示】药效已过，移速恢复正常。"); //[cite: 15]
     }
 
     // 【新增】被冰冻子弹打中调用的方法
