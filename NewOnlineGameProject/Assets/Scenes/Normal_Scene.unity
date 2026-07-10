@@ -182942,7 +182942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDifficulty: 0
-  roundDuration: 60
+  roundDuration: 600
   extractionPanel: {fileID: 2454059716850006543}
   progressText: {fileID: 4506371180831660010}
   timerText: {fileID: 978301726}
