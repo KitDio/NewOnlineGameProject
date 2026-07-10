@@ -185313,7 +185313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leaderbord
+  m_text: Leaderboard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb016a52d9781cd4198a6f3d439ef64c, type: 2}
   m_sharedMaterial: {fileID: -4820834946685480198, guid: eb016a52d9781cd4198a6f3d439ef64c,
@@ -186232,7 +186232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leaderbord
+  m_text: Leaderboard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb016a52d9781cd4198a6f3d439ef64c, type: 2}
   m_sharedMaterial: {fileID: -4820834946685480198, guid: eb016a52d9781cd4198a6f3d439ef64c,
