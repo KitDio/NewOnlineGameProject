@@ -10,6 +10,10 @@ public class HUDManager : MonoBehaviour
     [Header("UI References")]
     public Slider healthSlider;
     public Slider staminaSlider;
+    public Slider energySlider;
+
+    public GameObject energyContent;
+
     // 【新增】头像框下方的名字文本
     public TextMeshProUGUI avatarNameText;
 
@@ -24,6 +28,8 @@ public class HUDManager : MonoBehaviour
     // 缓存本地玩家的血量脚本
     private NetworkHealth localPlayerHealth;
     private NetworkStamina localPlayerStamina; // 【新增】缓存体力脚本
+
+    private PlayerWeightController localPlayerWeight;
 
     private float countdownTimer = 0f;
 
@@ -46,6 +52,20 @@ public class HUDManager : MonoBehaviour
         healthSlider.value = localPlayerHealth.currentHealth / localPlayerHealth.maxHealth;
 
         staminaSlider.value = localPlayerStamina.currentStamina / localPlayerStamina.maxStamina;
+
+        if (energySlider != null && localPlayerWeight != null)
+        {
+            // 如果还有 Buff 时间，就显示能量条并更新百分比
+            if (localPlayerWeight.currentBuffDuration > 0)
+            {
+                energyContent.SetActive(true);
+                energySlider.value = localPlayerWeight.currentBuffDuration / localPlayerWeight.maxBuffDuration;
+            }
+            else // 如果没喝饮料，或者时间到了，直接隐藏整个能量条
+            {
+                energyContent.SetActive(false);
+            }
+        }
 
         if (vignetteImage != null)
         {

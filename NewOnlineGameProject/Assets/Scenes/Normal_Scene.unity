@@ -156693,6 +156693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 7749050644820950497}
   staminaSlider: {fileID: 7280077692024001707}
+  energySlider: {fileID: 1513472778798578732}
+  energyContent: {fileID: 7796239169834893149}
   avatarNameText: {fileID: 3214147458987434505}
   respawnText: {fileID: 6348809271750069334}
   vignetteImage: {fileID: 2655997288343255638}
