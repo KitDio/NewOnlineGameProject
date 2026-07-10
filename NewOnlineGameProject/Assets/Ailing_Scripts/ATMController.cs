@@ -13,6 +13,11 @@ public class ATMController : MonoBehaviourPun
     [Range(1f, 10f)]
     public float rarityCurve = 4f;
 
+    [Header("音效设置 (SFX)")]
+    public AudioSource audioSource;       // 播放声音的组件（喇叭）
+    public AudioClip successSound;        // 刷卡变现成功的多巴胺音效 (Cash Register 等)
+    public AudioClip errorSound;          // 没拿卡时的错误提示音 (Buzzer/Error 等)
+
     // 玩家按下 E 时调用
     public void TryUseATM(InventoryManager inventory)
     {
@@ -20,19 +25,16 @@ public class ATMController : MonoBehaviourPun
 
         if (selectedItem != null && selectedItem.itemName == requiredCardName)
         {
-            // --- 【核心修改：加权随机算法】 ---
+            // --- 【音效触发】播放刷卡成功的声音 ---
+            if (audioSource != null && successSound != null)
+            {
+                audioSource.PlayOneShot(successSound);
+            }
 
-            // 1. 先摇一个 0.0 到 1.0 之间的纯随机小数 (比如 0.5)
+            // --- 【加权随机算法】 ---
             float roll = Random.value;
-
-            // 2. 利用乘方(Pow)把这个小数“压”下去。
-            // 比如 0.5 的 4 次方是 0.0625。原本 50% 的位置被强行压到了 6% 的位置！
             float weightedRoll = Mathf.Pow(roll, rarityCurve);
-
-            // 3. 把这个被压扁的比例，映射到我们的金额区间里
             int randomAmount = Mathf.RoundToInt(Mathf.Lerp(minMoney, maxMoney, weightedRoll));
-
-            // ---------------------------------
 
             inventory.RemoveSelectedItem();
 
@@ -44,6 +46,11 @@ public class ATMController : MonoBehaviourPun
         }
         else
         {
+            // --- 【音效触发】播放错误/拒绝的声音 ---
+            if (audioSource != null && errorSound != null)
+            {
+                audioSource.PlayOneShot(errorSound);
+            }
             Debug.LogWarning("ATM 提示：请将【信用卡】切到手中（按1~6），再按 E 刷卡！");
         }
     }

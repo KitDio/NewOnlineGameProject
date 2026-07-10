@@ -11,6 +11,13 @@ public class PlayerInteractRPG : MonoBehaviourPun
     private ATMController currentATM;
     private VendingMachineController currentVendingMachine;
 
+    [Header("音效设置 (SFX)")]
+    public AudioSource audioSource;       // 玩家身上的喇叭
+    public AudioClip dropSound;           // 丢弃物品的音效
+    public AudioClip healSound;           // 回血的音效
+    public AudioClip speedBoostSound;     // 加速的音效
+    public AudioClip pickupSound;
+
     void Start()
     {
         inventory = FindObjectOfType<InventoryManager>();
@@ -127,19 +134,25 @@ public class PlayerInteractRPG : MonoBehaviourPun
 
             if (currentItem != null)
             {
-                // 【核心修复】在通知网络销毁物品前，先检查自己能不能装得下！
+                // 先检查自己能不能装得下！
                 if (inventory != null && inventory.IsFull())
                 {
                     Debug.LogWarning("背包已满，无法拾取该物品！");
-
-                    return; 
+                    return;
                 }
 
-                // 如果背包没满，再正常走网络拾取流程
+                // --- 【音效触发】背包没满，播放拾取声音！ ---
+                if (audioSource != null && pickupSound != null)
+                {
+                    audioSource.PlayOneShot(pickupSound);
+                }
+
+                // 然后再正常走网络拾取流程
                 currentItem.RequestPickup();
                 currentItem = null;
                 if (InteractUIManager.Instance != null) InteractUIManager.Instance.interactPanel.SetActive(false);
             }
+
             else if (currentLootBox != null)
             {
                 currentLootBox.RequestOpen();
@@ -179,6 +192,12 @@ public class PlayerInteractRPG : MonoBehaviourPun
         ItemData itemToDrop = inventory.GetSelectedItem();
         if (itemToDrop != null)
         {
+            // --- 【音效触发】播放丢弃物品声音 ---
+            if (audioSource != null && dropSound != null)
+            {
+                audioSource.PlayOneShot(dropSound);
+            }
+
             Vector3 dropPosition = transform.position + transform.forward * 1.5f + Vector3.up * 0.5f;
             PhotonNetwork.Instantiate(itemToDrop.resourcePrefabName, dropPosition, Quaternion.identity);
             inventory.RemoveSelectedItem();
@@ -196,21 +215,24 @@ public class PlayerInteractRPG : MonoBehaviourPun
         {
             Debug.Log($"玩家使用了道具：{itemToUse.itemName}");
 
-            // 1. 执行回血逻辑 (Debug 占位)
+            // 1. 执行回血逻辑 
             NetworkHealth health = GetComponent<NetworkHealth>();
             if (health != null)
             {
-                if (health.currentHealth > 0 && health.currentHealth < health.maxHealth)
+                // 只有没死、没满血、且该道具确实包含回血数值时，才执行
+                if (health.currentHealth > 0 && health.currentHealth < health.maxHealth && itemToUse.healthRestore > 0)
                 {
                     health.ApplyHeal(itemToUse.healthRestore);
-                }
-                else
-                {
-                    return; 
+
+                    // --- 【音效触发】在这里精准播放回血声音 ---
+                    if (audioSource != null && healSound != null)
+                    {
+                        audioSource.PlayOneShot(healSound);
+                    }
                 }
             }
 
-            // 2. 执行加速逻辑 (呼叫你身上的 WeightController)
+            // 2. 执行加速逻辑
             if (itemToUse.speedBoostMultiplier > 1f)
             {
                 Debug.Log($"<color=yellow>【系统提示】扎针了！移速提升为 {itemToUse.speedBoostMultiplier} 倍，持续 {itemToUse.speedBoostDuration} 秒！</color>");
@@ -219,6 +241,12 @@ public class PlayerInteractRPG : MonoBehaviourPun
                 if (weightController != null)
                 {
                     weightController.ApplySpeedBuff(itemToUse.speedBoostMultiplier, itemToUse.speedBoostDuration);
+                }
+
+                // --- 【音效触发】在这里精准播放加速/喝饮料声音 ---
+                if (audioSource != null && speedBoostSound != null)
+                {
+                    audioSource.PlayOneShot(speedBoostSound);
                 }
             }
 

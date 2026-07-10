@@ -1549,18 +1549,33 @@ namespace Synty.AnimationBaseLocomotion.Samples
 
         #endregion
 
-        public void SetMoveSpeed(float speed)//冰冻减速度的
+        // 【新增】用来记住玩家始祖始默认速度的变量
+        private float _defaultWalkSpeed;
+        private float _defaultRunSpeed;
+        private float _defaultSprintSpeed;
+
+        private void Awake()
         {
-            _walkSpeed = speed;
-            _runSpeed = speed;
-            _sprintSpeed = speed;
+            // 在游戏刚开始时，把面板上设置的初始速度存起来
+            _defaultWalkSpeed = _walkSpeed;
+            _defaultRunSpeed = _runSpeed;
+            _defaultSprintSpeed = _sprintSpeed;
         }
 
+        // 【修改】改成按百分比/乘数来减速（比如传入 0.5f 就是减速 50%）
+        public void ApplySpeedMultiplier(float multiplier)
+        {
+            _walkSpeed = _defaultWalkSpeed * multiplier;
+            _runSpeed = _defaultRunSpeed * multiplier;
+            _sprintSpeed = _defaultSprintSpeed * multiplier;
+        }
+
+        // 【修改】恢复速度时，直接读取原来保存的默认值，不要写死数字！
         public void ResetMoveSpeed()
         {
-            _walkSpeed = 1.4f;
-            _runSpeed = 2.5f;
-            _sprintSpeed = 7f;
+            _walkSpeed = _defaultWalkSpeed;
+            _runSpeed = _defaultRunSpeed;
+            _sprintSpeed = _defaultSprintSpeed;
         }
     }
 }

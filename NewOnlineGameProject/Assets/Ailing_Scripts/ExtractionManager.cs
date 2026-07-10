@@ -29,6 +29,11 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI progressText;
     public TextMeshProUGUI timerText;
 
+    [Header("音效设置 (SFX)")]
+    public AudioSource audioSource;       // 播放提交声音的喇叭
+    public AudioClip submitSound;         // 成功提交资金的爽快音效 (Cash Register/Score Count)
+    public AudioClip errorSound;
+
     void Start()
     {
         if (extractionPanel != null) extractionPanel.SetActive(false);
@@ -204,6 +209,12 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         int valueToSubmit = inventory.GetTotalValue();
         if (valueToSubmit > 0)
         {
+            // --- 【音效触发】播放提交资金的声音 ---
+            if (audioSource != null && submitSound != null)
+            {
+                audioSource.PlayOneShot(submitSound);
+            }
+
             // 1. 给房间总进度加钱
             int newValue = currentSubmittedValue + valueToSubmit;
             Hashtable hash = new Hashtable();
@@ -224,6 +235,10 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            if (audioSource != null && errorSound != null)
+            {
+                audioSource.PlayOneShot(errorSound);
+            }
             Debug.LogWarning("你的包里没东西，或者东西一文不值！");
         }
     }
@@ -241,11 +256,19 @@ public class ExtractionManager : MonoBehaviourPunCallbacks
             else
             {
                 Debug.Log("<color=orange>【撤离等待】资金已达标，但还有队员未进入撤离区！等全员到齐后才能撤离！</color>");
+                if (audioSource != null && errorSound != null)
+                {
+                    audioSource.PlayOneShot(errorSound);
+                }
             }
         }
         else
         {
             Debug.Log("<color=red>【任务失败】金额不足，强行撤离，雇主非常生气，任务失败！</color>");
+            if (audioSource != null && errorSound != null)
+            {
+                audioSource.PlayOneShot(errorSound);
+            }
         }
     }
 

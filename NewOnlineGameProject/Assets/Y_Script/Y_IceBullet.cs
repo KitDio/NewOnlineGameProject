@@ -8,7 +8,7 @@ public class Y_IceBullet : Bullet
 
         if (player != null)
         {
-            player.ApplyFreeze();
+            player.RpcApplyFreeze();
         }
     }
 }

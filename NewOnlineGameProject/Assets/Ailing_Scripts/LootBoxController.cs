@@ -14,6 +14,10 @@ public class LootBoxController : MonoBehaviourPun
     [Header("奖池 (填入 Resources 文件夹里的预制体名字)")]
     public string[] possibleItems;
 
+    [Header("音效设置 (SFX)")]
+    public AudioSource audioSource;       // 盲盒上的喇叭
+    public AudioClip openSound;           // 打开箱子的惊喜音效 (Treasure Open / Chest Unlock)
+
     private bool isOpened = false; // 防止重复开启
 
     // 玩家按下 E 时调用
@@ -36,6 +40,12 @@ public class LootBoxController : MonoBehaviourPun
     [PunRPC]
     void RPC_ConfirmOpen()
     {
+        // --- 【音效触发】在所有人的电脑上播放开箱声音 ---
+        if (audioSource != null && openSound != null)
+        {
+            audioSource.PlayOneShot(openSound);
+        }
+
         // 1. 所有人都在本地执行：弹飞盖子
         if (lidRigidbody != null)
         {
@@ -65,7 +75,7 @@ public class LootBoxController : MonoBehaviourPun
             PhotonNetwork.Instantiate(itemToSpawn, spawnPoint.position, Quaternion.identity);
         }
 
-        // 倒计时 1 秒
+        // 倒计时 3 秒
         yield return new WaitForSeconds(3f);
 
         // 销毁空箱子

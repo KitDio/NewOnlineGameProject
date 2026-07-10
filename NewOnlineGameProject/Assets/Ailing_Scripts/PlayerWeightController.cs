@@ -1,36 +1,34 @@
 using UnityEngine;
 using Photon.Pun;
-using StarterAssets;
 using System.Collections;
+using Synty.AnimationBaseLocomotion.Samples;
 
 public class PlayerWeightController : MonoBehaviourPun
 {
     [Header("负重参数")]
-    public float maxWeightCapacity = 20f; // 极限重量（超过这个值，速度降到最低）
-    public float minimumSpeedMultiplier = 0.2f; // 最低速度倍率（即使超重，也能像蜗牛一样蠕动，保留0.2倍速）
+    public float maxWeightCapacity = 20f;
+    public float minimumSpeedMultiplier = 0.2f;
 
-    // 存放 Starter Asset 控制器的引用
-    private ThirdPersonController thirdPersonController;
-
-
-    // 记录玩家初始的健康速度
-    private float originalMoveSpeed;
+    private SamplePlayerAnimationController movementScript;
+    private float originalWalkSpeed;
+    private float originalRunSpeed;
     private float originalSprintSpeed;
 
-    // 【新增】用来记录当前身上的临时加速 Buff
-    private float currentBuffMultiplier = 1f;
+    private float currentBuffMultiplier = 1f;   // 喝饮料加速
+    private float currentDebuffMultiplier = 1f; // 【新增】被子弹打中减速
+
     private Coroutine buffCoroutine;
+    private Coroutine debuffCoroutine; // 【新增】管理减速的协程
 
     void Start()
     {
-        // 尝试获取玩家身上的控制器（兼容第一人称和第三人称）
-        thirdPersonController = GetComponent<ThirdPersonController>();
+        movementScript = GetComponent<SamplePlayerAnimationController>();
 
-        // 记录初始速度，作为计算基准
-        if (thirdPersonController != null)
+        if (movementScript != null)
         {
-            originalMoveSpeed = thirdPersonController.MoveSpeed;
-            originalSprintSpeed = thirdPersonController.SprintSpeed;
+            originalWalkSpeed = movementScript._walkSpeed;
+            originalRunSpeed = movementScript._runSpeed;
+            originalSprintSpeed = movementScript._sprintSpeed;
         }
     }
 
@@ -43,35 +41,49 @@ public class PlayerWeightController : MonoBehaviourPun
         {
             float currentWeight = inventory.GetTotalWeight();
 
-            // 1. 算出负重导致的基础减速
+            // 1. 基础负重减速
             float baseSpeedMultiplier = 1f - (currentWeight / maxWeightCapacity);
             baseSpeedMultiplier = Mathf.Clamp(baseSpeedMultiplier, minimumSpeedMultiplier, 1f);
 
-            // 2. 【核心修改】把基础减速 和 药物Buff 乘在一起！
-            float finalMultiplier = baseSpeedMultiplier * currentBuffMultiplier;
+            // 2. 【核心修改】最终倍率 = 负重倍率 * 饮料Buff倍率 * 子弹减速倍率
+            float finalMultiplier = baseSpeedMultiplier * currentBuffMultiplier * currentDebuffMultiplier;
 
-            // 3. 应用最终速度
-            if (thirdPersonController != null)
+            if (movementScript != null)
             {
-                thirdPersonController.MoveSpeed = originalMoveSpeed * finalMultiplier;
-                thirdPersonController.SprintSpeed = originalSprintSpeed * finalMultiplier;
+                movementScript._walkSpeed = originalWalkSpeed * finalMultiplier;
+                movementScript._runSpeed = originalRunSpeed * finalMultiplier;
+                movementScript._sprintSpeed = originalSprintSpeed * finalMultiplier;
             }
         }
     }
 
+    // 喝饮料加速调用的方法
     public void ApplySpeedBuff(float buffMultiplier, float duration)
     {
-        // 如果连续打针，先停掉上一个倒计时
         if (buffCoroutine != null) StopCoroutine(buffCoroutine);
-        // 开启新的打针倒计时
         buffCoroutine = StartCoroutine(SpeedBuffRoutine(buffMultiplier, duration));
     }
 
     private IEnumerator SpeedBuffRoutine(float buffMultiplier, float duration)
     {
-        currentBuffMultiplier = buffMultiplier; // 获得加速
-        yield return new WaitForSeconds(duration); // 等待药效过去
-        currentBuffMultiplier = 1f; // 药效结束，打回原形
-        Debug.Log("【系统提示】肾上腺素药效已过，移速恢复正常。");
+        currentBuffMultiplier = buffMultiplier;
+        yield return new WaitForSeconds(duration);
+        currentBuffMultiplier = 1f;
+        Debug.Log("【系统提示】药效已过，移速恢复正常。");
+    }
+
+    // 【新增】被冰冻子弹打中调用的方法
+    public void ApplySpeedDebuff(float debuffMultiplier, float duration)
+    {
+        if (debuffCoroutine != null) StopCoroutine(debuffCoroutine);
+        debuffCoroutine = StartCoroutine(SpeedDebuffRoutine(debuffMultiplier, duration));
+    }
+
+    private IEnumerator SpeedDebuffRoutine(float debuffMultiplier, float duration)
+    {
+        currentDebuffMultiplier = debuffMultiplier;
+        yield return new WaitForSeconds(duration);
+        currentDebuffMultiplier = 1f; // 持续时间到，恢复正常乘数
+        Debug.Log("【系统提示】冰冻效果已过，移速恢复。");
     }
 }

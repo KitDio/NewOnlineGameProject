@@ -9,8 +9,13 @@ public class VendingMachineController : MonoBehaviourPun
     public Transform spawnPoint; // 饮料喷出来的位置
 
     [Header("弹射力设置 (抛物线效果)")]
-    public float forwardForce = 5f; 
+    public float forwardForce = 5f;
     public float upwardForce = 3f;
+
+    [Header("音效设置 (SFX)")]
+    public AudioSource audioSource;         // 播放声音的组件（机器里的喇叭）
+    public AudioClip dispenseSound;         // 购买成功，饮料掉落的清脆机械声
+    public AudioClip errorSound;            // 余额不足时的“滴滴”拒绝声
 
     // 玩家按下 E 时调用
     public void TryBuyItem()
@@ -21,6 +26,12 @@ public class VendingMachineController : MonoBehaviourPun
         {
             if (extractionManager.TrySpendFunds(price))
             {
+                // --- 【音效触发】只在本地播放购买成功的声音 ---
+                if (audioSource != null && dispenseSound != null)
+                {
+                    audioSource.PlayOneShot(dispenseSound);
+                }
+
                 Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : transform.position + transform.forward * 1.5f;
 
                 // 1. 生成物体，并用 spawnedItem 变量接住它
@@ -46,6 +57,11 @@ public class VendingMachineController : MonoBehaviourPun
             }
             else
             {
+                // --- 【音效触发】余额不足，本地播放错误声 ---
+                if (audioSource != null && errorSound != null)
+                {
+                    audioSource.PlayOneShot(errorSound);
+                }
                 Debug.Log("滴滴滴！余额不足！");
             }
         }
